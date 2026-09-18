@@ -45,6 +45,8 @@ public class ApiController {
 
         ingestEmailService.ingestEmail(emailFormatted);
 
+        log.info("ingested file={}", input.getOriginalFilename());
+
     }
 
     @PostMapping("/ingest-string")

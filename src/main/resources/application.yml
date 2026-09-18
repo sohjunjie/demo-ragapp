@@ -14,6 +14,7 @@ spring:
         index-type: HNSW
         distance-type: COSINE_DISTANCE
         dimensions: 384
+        table-name: vector_store
   application.name: demo-ragapp
   datasource:
     url: jdbc:postgresql://localhost:5432/ragdb

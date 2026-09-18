@@ -49,4 +49,5 @@ public class JudgeApiController {
 
         return emailResolutionJudgeService.evaluate(emailFormatted, options);
     }
+
 }

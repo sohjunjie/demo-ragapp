@@ -1,10 +1,11 @@
 package org.example.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.ingestion.EmailIngestionService;
 import org.example.model.IngestionReq;
 import org.example.service.DocumentQueryService;
 import org.example.service.EmailParser;
-import org.example.service.IngestionService;
+import org.example.ingestion.StringIngestionService;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.reader.tika.TikaDocumentReader;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,10 @@ import java.util.List;
 public class ApiController {
 
     @Autowired
-    private IngestionService ingestionService;
+    private StringIngestionService ingestStringService;
+
+    @Autowired
+    private EmailIngestionService ingestEmailService;
 
     @Autowired
     private DocumentQueryService documentQueryService;
@@ -39,13 +43,13 @@ public class ApiController {
         var emailRaw = rawDocuments.getFirst().getText();
         var emailFormatted = emailParser.parse(emailRaw);
 
-        log.info("email content = {}", emailRaw);
+        ingestEmailService.ingestEmail(emailFormatted);
 
     }
 
-    @PostMapping("/ingest")
+    @PostMapping("/ingest-string")
     public void ingest(@RequestBody IngestionReq req) {
-        ingestionService.ingestString(
+        ingestStringService.ingestString(
                 req.getContent(),
                 req.getSource(),
                 req.getDescription(),

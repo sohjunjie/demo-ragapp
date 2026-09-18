@@ -9,8 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		var apiKey = System.getenv("GEMINI_API_KEY");
-		log.info("api key = {}", apiKey);
 		SpringApplication.run(DemoApplication.class, args);
 	}
 

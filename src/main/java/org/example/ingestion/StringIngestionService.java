@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.ingestion;
 
 import org.springframework.ai.document.Document;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class IngestionService {
+public class StringIngestionService {
 
     @Autowired
     private VectorStore vectorStore;

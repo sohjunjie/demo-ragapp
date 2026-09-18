@@ -1,0 +1,77 @@
+From: "Priya Nair" <priya.nair@citadelsecurities-ops.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [WORKAROUND ACTIVE] URGENT: SEPA Instant Payment Settlement Failures on BIC DBEUMM2X [REF-BNK-2026196]
+Date: Thu, 28 May 2026 10:10:00 +0000
+Message-ID: <BNK-2026196-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026196-turn3@banktech-ops.internal>
+References: <BNK-2026196-turn1@banktech-ops.internal> <BNK-2026196-turn2@banktech-ops.internal> <BNK-2026196-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026196
+X-Domain-Category: Payments, Wire & Clearing
+X-Thread-Resolution-Status: WORKAROUND
+
+Hi Alexander Wright,
+
+Acknowledged. We have applied the workaround instructions, and today's urgent settlements have processed successfully. 
+
+Please keep us updated once the permanent patch CR-8196 is successfully deployed to production this weekend.
+
+Regards,
+Priya Nair
+Settlements Analyst
+
+
+On Thu, 28 May 2026 02:02:00 +0000, Alexander Wright <awright@banktech-support.com> wrote:
+> Hi Priya Nair,
+> 
+> Our engineering team has identified the failure mechanism, but a permanent core patch will require scheduled weekend downtime. 
+> 
+> In the interim, we have implemented the following operational WORKAROUND:
+> Temporarily disabled the automated TIPS balance auto-topup and routed SEPA transactions via standard SEPA Credit Transfer (SCT) batch mode instead of Instant SCT. For CHAPS, manually broadcasted status via the ops portal.
+> 
+> Please execute your critical transactions using this intermediate path. We have linked this to Change Request CR-8196 for permanent deployment during Sunday's maintenance window.
+> 
+> Best regards,
+> Alexander Wright
+> Senior Integration Engineer
+> 
+>
+> On Wed, 27 May 2026 19:33:00 +0000, Alexander Wright <awright@banktech-support.com> wrote:
+>> Hi Priya Nair,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026196 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Payments, Wire & Clearing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Alexander Wright
+>> Senior Integration Engineer
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Wed, 27 May 2026 18:10:00 +0000, Priya Nair <priya.nair@citadelsecurities-ops.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> pacs.008 messages for instant credit transfers rejected with error code 'AM04' (Insufficient Funds in clearing account), despite TARGET2 memo balance showing €45M surplus.
+>>> 
+>>> Secondary Question / Request:
+>>> Also, our automated clearing cut-off notifications for CHAPS failed to trigger at 16:00 BST.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Priya Nair
+>>> Settlements Analyst
+>>> Direct: +1 (212) 555-1196
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

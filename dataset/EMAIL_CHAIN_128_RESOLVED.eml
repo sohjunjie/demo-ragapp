@@ -1,0 +1,77 @@
+From: "Chloe Bennett" <cbennett@pacifichedge.sg>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: Letter of Credit (LC) MT700 Amendment Discrepancy & Bill of Lading Validation [LC-BNK-2026128]
+Date: Fri, 10 Apr 2026 14:20:00 +0000
+Message-ID: <BNK-2026128-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026128-turn3@banktech-ops.internal>
+References: <BNK-2026128-turn1@banktech-ops.internal> <BNK-2026128-turn2@banktech-ops.internal> <BNK-2026128-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026128
+X-Domain-Category: Corporate Lending & Trade Finance
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Gregory Bell,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Chloe Bennett
+Risk & Liquidity Controller
+
+
+On Fri, 10 Apr 2026 08:01:00 +0000, Gregory Bell <gbell@fintechops-tier3.com> wrote:
+> Hi Chloe Bennett,
+> 
+> Root Cause Analysis and Resolution:
+> Analysis revealed that the OCR document parsing microservice misread the container shipping date (read 03/08/2026 as March 8 instead of August 3 due to date locale format MM/DD vs DD/MM). Updated date parser regex and manually approved the presentation in the TradeFlow portal. Confirmed fee was debited from EUR account #4402.
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026128.
+> 
+> Best regards,
+> Gregory Bell
+> Clearing Support Engineer
+> 
+>
+> On Fri, 10 Apr 2026 02:21:00 +0000, Gregory Bell <gbell@fintechops-tier3.com> wrote:
+>> Hi Chloe Bennett,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026128 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Corporate Lending & Trade Finance.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Gregory Bell
+>> Clearing Support Engineer
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Thu, 09 Apr 2026 23:50:00 +0000, Chloe Bennett <cbennett@pacifichedge.sg> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Irrevocable Commercial Letter of Credit #ILC-2026-8819 for $6,300,000 showing status 'DOCUMENTS_REJECTED' due to an apparent discrepancy between the electronic bill of lading transport date and LC expiry date.
+>>> 
+>>> Secondary Question / Request:
+>>> Corporate client also wants confirmation on whether the issuance fee was debited from their EUR or USD sub-account.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Chloe Bennett
+>>> Risk & Liquidity Controller
+>>> Direct: +1 (212) 555-1128
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

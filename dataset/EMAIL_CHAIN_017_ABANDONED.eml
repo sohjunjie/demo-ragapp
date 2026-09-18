@@ -1,0 +1,66 @@
+From: "Samuel Becker" <sbecker@cloudfin-systems.com>
+To: "Ahmed Al-Mansoor" <a.mansoor@gulfcredit.ae>
+Subject: [AUTO-CLOSED / ABANDONED] SWIFT MT103 Sanction Screening False Positive Blockade - Entity 'Valence Biopharma BV' [TRX-BNK-2026017]
+Date: Thu, 22 Jan 2026 12:41:00 +0000
+Message-ID: <BNK-2026017-turn3-autoclose@banktech-ops.internal>
+In-Reply-To: <BNK-2026017-turn2@banktech-ops.internal>
+References: <BNK-2026017-turn1@banktech-ops.internal> <BNK-2026017-turn2@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026017
+X-Domain-Category: Payments, Wire & Clearing
+X-Thread-Resolution-Status: ABANDONED
+
+Hi Ahmed Al-Mansoor,
+
+Following up on ticket BNK-2026017. 
+
+Client legal counsel took over communications directly with OFAC. Ticket abandoned by internal operations team as out of IT support scope.
+
+We have attempted to reach you over phone and email to collect additional network captures and confirmation. As we have not received a response within the standard 72-hour SLA window, this ticket is being marked as ABANDONED / AUTO-CLOSED.
+
+If you are still experiencing this issue, please reply directly to this thread or open a new ticket referencing BNK-2026017.
+
+Sincerely,
+Automated Service Desk & Samuel Becker
+Enterprise Operations
+
+
+On Thu, 22 Jan 2026 10:26:00 +0000, Samuel Becker <sbecker@cloudfin-systems.com> wrote:
+> Hi Ahmed Al-Mansoor,
+> 
+> Thank you for raising this. Incident ticket BNK-2026017 has been registered with Priority P1-High.
+> 
+> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Payments, Wire & Clearing.
+> Initial check:
+> - Validated telemetry across incoming message brokers.
+> - Investigating database locks and upstream clearing network status.
+> 
+> I will update you as soon as the diagnostics complete.
+> 
+> Best regards,
+> Samuel Becker
+> API & Gateway Architect
+> Enterprise Financial Support Group
+> 
+>
+> On Thu, 22 Jan 2026 08:05:00 +0000, Ahmed Al-Mansoor <a.mansoor@gulfcredit.ae> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Cross-border USD settlement of $14,250,000 to Valence Biopharma BV held in OFAC queue due to fuzzy string match against designated national list (similarity 88%). Funds are blocked mid-flight at intermediary correspondent bank.
+>>> 
+>>> Secondary Question / Request:
+>>> We also noticed that MT199 status confirmation messages are failing schema validation on our downstream MQ listener.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Ahmed Al-Mansoor
+>>> Cash Management Director
+>>> Direct: +1 (212) 555-1017
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

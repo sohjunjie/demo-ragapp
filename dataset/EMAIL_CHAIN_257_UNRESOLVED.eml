@@ -1,0 +1,77 @@
+From: "Ahmed Al-Mansoor" <a.mansoor@gulfcredit.ae>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [P1 - UNRESOLVED ESCALATION] SWIFT MT103 Sanction Screening False Positive Blockade - Entity 'Valence Biopharma BV' [TRX-BNK-2026257]
+Date: Thu, 09 Jul 2026 23:27:00 +0000
+Message-ID: <BNK-2026257-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026257-turn3@banktech-ops.internal>
+References: <BNK-2026257-turn1@banktech-ops.internal> <BNK-2026257-turn2@banktech-ops.internal> <BNK-2026257-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026257
+X-Domain-Category: Payments, Wire & Clearing
+X-Thread-Resolution-Status: UNRESOLVED
+
+Hi Mei Ling Zhou,
+
+Understood, but please be aware that the delay is placing us in breach of regulatory settlement thresholds. The head of operations has been notified. 
+
+We will join the emergency bridge call immediately.
+
+Regards,
+Ahmed Al-Mansoor
+Cash Management Director
+
+
+On Thu, 09 Jul 2026 12:11:00 +0000, Mei Ling Zhou <mlzhou@finflow-core.internal> wrote:
+> Hi Ahmed Al-Mansoor,
+> 
+> Current Status Update:
+> The correspondent bank's compliance team in New York has not responded to MT199 query inquiries. The transaction remains frozen in escrow under 31 CFR Part 501. Further updates pending regulatory clearance.
+> 
+> Given the severity and lack of an immediate workaround, this issue is flagged as a blocker. We are scheduling an emergency cross-functional incident bridge with external vendors and tier-3 architects.
+> 
+> We will provide hourly updates on the conference bridge.
+> 
+> Best regards,
+> Mei Ling Zhou
+> Database & Ledger Ops
+> 
+>
+> On Thu, 09 Jul 2026 09:36:00 +0000, Mei Ling Zhou <mlzhou@finflow-core.internal> wrote:
+>> Hi Ahmed Al-Mansoor,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026257 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Payments, Wire & Clearing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Mei Ling Zhou
+>> Database & Ledger Ops
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Thu, 09 Jul 2026 08:05:00 +0000, Ahmed Al-Mansoor <a.mansoor@gulfcredit.ae> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Cross-border USD settlement of $14,250,000 to Valence Biopharma BV held in OFAC queue due to fuzzy string match against designated national list (similarity 88%). Funds are blocked mid-flight at intermediary correspondent bank.
+>>> 
+>>> Secondary Question / Request:
+>>> We also noticed that MT199 status confirmation messages are failing schema validation on our downstream MQ listener.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Ahmed Al-Mansoor
+>>> Cash Management Director
+>>> Direct: +1 (212) 555-1257
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

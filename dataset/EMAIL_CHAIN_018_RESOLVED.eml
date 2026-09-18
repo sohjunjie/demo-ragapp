@@ -1,0 +1,77 @@
+From: "Chloe Bennett" <cbennett@pacifichedge.sg>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: Fedwire Inbound Queue Intermittent Timeout & Nostro Reconciliation Variance [INC-BNK-2026018]
+Date: Fri, 23 Jan 2026 13:33:00 +0000
+Message-ID: <BNK-2026018-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026018-turn3@banktech-ops.internal>
+References: <BNK-2026018-turn1@banktech-ops.internal> <BNK-2026018-turn2@banktech-ops.internal> <BNK-2026018-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026018
+X-Domain-Category: Payments, Wire & Clearing
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Tara Deshmukh,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Chloe Bennett
+Risk & Liquidity Controller
+
+
+On Fri, 23 Jan 2026 06:23:00 +0000, Tara Deshmukh <tdeshmukh@finserv-systems.internal> wrote:
+> Hi Chloe Bennett,
+> 
+> Root Cause Analysis and Resolution:
+> Root cause was a connection pool leak in the MQSeries bridge connecting the FedLine Direct gateway to the core banking ledger. Deployed hotfix v4.12.3 fixing connection handle leaks and executed an end-of-day ledger sync script.
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026018.
+> 
+> Best regards,
+> Tara Deshmukh
+> L3 Tier Support Tech Lead
+> 
+>
+> On Fri, 23 Jan 2026 02:05:00 +0000, Tara Deshmukh <tdeshmukh@finserv-systems.internal> wrote:
+>> Hi Chloe Bennett,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026018 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Payments, Wire & Clearing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Tara Deshmukh
+>> L3 Tier Support Tech Lead
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Fri, 23 Jan 2026 01:00:00 +0000, Chloe Bennett <cbennett@pacifichedge.sg> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Inbound Fedwire messages (IMAD/OMAD) failing to post to real-time GL, causing a $32.4M discrepancy in Federal Reserve Bank of New York nostro account reconciliation.
+>>> 
+>>> Secondary Question / Request:
+>>> Additionally, daytime liquidity overdraft charges alert triggered erroneously on our corporate dashboard.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Chloe Bennett
+>>> Risk & Liquidity Controller
+>>> Direct: +1 (212) 555-1018
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

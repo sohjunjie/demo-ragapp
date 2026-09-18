@@ -1,0 +1,77 @@
+From: "Ahmed Al-Mansoor" <a.mansoor@gulfcredit.ae>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: SWIFT MT103 Sanction Screening False Positive Blockade - Entity 'Bavaria Real Estate Fund' [TRX-BNK-2026182]
+Date: Mon, 18 May 2026 15:37:00 +0000
+Message-ID: <BNK-2026182-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026182-turn3@banktech-ops.internal>
+References: <BNK-2026182-turn1@banktech-ops.internal> <BNK-2026182-turn2@banktech-ops.internal> <BNK-2026182-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026182
+X-Domain-Category: Payments, Wire & Clearing
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Alexander Wright,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Ahmed Al-Mansoor
+Cash Management Director
+
+
+On Mon, 18 May 2026 09:13:00 +0000, Alexander Wright <awright@banktech-support.com> wrote:
+> Hi Ahmed Al-Mansoor,
+> 
+> Root Cause Analysis and Resolution:
+> Compliance officer reviewed LEI (Legal Entity Identifier) and confirmed false-positive homonym. Whitelisted LEI in FircoSoft filter rule #84109 and resubmitted MT103 with Tag 72 /SDN-EXEMPT/ override code. Updated MQ XML schema definition to handle Tag 79 multiline CRLF formatting.
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026182.
+> 
+> Best regards,
+> Alexander Wright
+> Senior Integration Engineer
+> 
+>
+> On Mon, 18 May 2026 03:31:00 +0000, Alexander Wright <awright@banktech-support.com> wrote:
+>> Hi Ahmed Al-Mansoor,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026182 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Payments, Wire & Clearing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Alexander Wright
+>> Senior Integration Engineer
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Mon, 18 May 2026 00:20:00 +0000, Ahmed Al-Mansoor <a.mansoor@gulfcredit.ae> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Cross-border USD settlement of $14,250,000 to Bavaria Real Estate Fund held in OFAC queue due to fuzzy string match against designated national list (similarity 88%). Funds are blocked mid-flight at intermediary correspondent bank.
+>>> 
+>>> Secondary Question / Request:
+>>> We also noticed that MT199 status confirmation messages are failing schema validation on our downstream MQ listener.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Ahmed Al-Mansoor
+>>> Cash Management Director
+>>> Direct: +1 (212) 555-1182
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

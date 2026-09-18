@@ -1,0 +1,66 @@
+From: "Kavita Patel" <kpatel@banking-solutions.internal>
+To: "Priya Nair" <priya.nair@citadelsecurities-ops.com>
+Subject: [AUTO-CLOSED / ABANDONED] Card Fraud Rule False Positive Spike on Cross-Border E-Commerce [FRD-BNK-2026041]
+Date: Sun, 08 Feb 2026 12:03:00 +0000
+Message-ID: <BNK-2026041-turn3-autoclose@banktech-ops.internal>
+In-Reply-To: <BNK-2026041-turn2@banktech-ops.internal>
+References: <BNK-2026041-turn1@banktech-ops.internal> <BNK-2026041-turn2@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026041
+X-Domain-Category: Risk, Compliance & Fraud
+X-Thread-Resolution-Status: ABANDONED
+
+Hi Priya Nair,
+
+Following up on ticket BNK-2026041. 
+
+Customer service reported call volumes returned to baseline following the weekend travel rush. No further engineering tickets pursued.
+
+We have attempted to reach you over phone and email to collect additional network captures and confirmation. As we have not received a response within the standard 72-hour SLA window, this ticket is being marked as ABANDONED / AUTO-CLOSED.
+
+If you are still experiencing this issue, please reply directly to this thread or open a new ticket referencing BNK-2026041.
+
+Sincerely,
+Automated Service Desk & Kavita Patel
+Enterprise Operations
+
+
+On Sun, 08 Feb 2026 05:23:00 +0000, Kavita Patel <kpatel@banking-solutions.internal> wrote:
+> Hi Priya Nair,
+> 
+> Thank you for raising this. Incident ticket BNK-2026041 has been registered with Priority P1-High.
+> 
+> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Risk, Compliance & Fraud.
+> Initial check:
+> - Validated telemetry across incoming message brokers.
+> - Investigating database locks and upstream clearing network status.
+> 
+> I will update you as soon as the diagnostics complete.
+> 
+> Best regards,
+> Kavita Patel
+> Trade Engine Escalations
+> Enterprise Financial Support Group
+> 
+>
+> On Sun, 08 Feb 2026 03:05:00 +0000, Priya Nair <priya.nair@citadelsecurities-ops.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Sudden surge in card transaction declines (Decline Code 59: Suspected Fraud) affecting over 1,800 retail cardholders purchasing on European travel portals.
+>>> 
+>>> Secondary Question / Request:
+>>> Customer service phone IVR queues are overwhelmed with wait times exceeding 45 minutes.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Priya Nair
+>>> Settlements Analyst
+>>> Direct: +1 (212) 555-1041
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

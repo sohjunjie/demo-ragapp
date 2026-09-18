@@ -1,0 +1,77 @@
+From: "Ahmed Al-Mansoor" <a.mansoor@gulfcredit.ae>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: Corporate Dormant Account Reactivation & KYC Document Hold Rejection [KYC-BNK-2026247]
+Date: Fri, 03 Jul 2026 05:36:00 +0000
+Message-ID: <BNK-2026247-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026247-turn3@banktech-ops.internal>
+References: <BNK-2026247-turn1@banktech-ops.internal> <BNK-2026247-turn2@banktech-ops.internal> <BNK-2026247-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026247
+X-Domain-Category: Core Banking & Account Servicing
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Gregory Bell,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Ahmed Al-Mansoor
+Cash Management Director
+
+
+On Thu, 02 Jul 2026 20:27:00 +0000, Gregory Bell <gbell@fintechops-tier3.com> wrote:
+> Hi Ahmed Al-Mansoor,
+> 
+> Root Cause Analysis and Resolution:
+> Found that the KYC workflow engine (Pega) failed to publish the 'KYC_CLEARANCE_EVENT' to the Apache Kafka event bus due to schema registry serialization exception. Repaired the Avro schema definition, re-published the event, and updated the wire limit to $25M in the Core Admin console.
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026247.
+> 
+> Best regards,
+> Gregory Bell
+> Clearing Support Engineer
+> 
+>
+> On Thu, 02 Jul 2026 16:39:00 +0000, Gregory Bell <gbell@fintechops-tier3.com> wrote:
+>> Hi Ahmed Al-Mansoor,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026247 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Core Banking & Account Servicing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Gregory Bell
+>> Clearing Support Engineer
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Thu, 02 Jul 2026 13:55:00 +0000, Ahmed Al-Mansoor <a.mansoor@gulfcredit.ae> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> High-net-worth commercial entity account (ID: AC-984102) unable to execute outbound wire transfers following reactivation. The UI displays 'KYC_BLOCK_ACTIVE' despite compliance sign-off document uploaded 48 hours ago.
+>>> 
+>>> Secondary Question / Request:
+>>> Client also requested increasing the daily wire limit from $5M to $25M under their master treasury agreement.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Ahmed Al-Mansoor
+>>> Cash Management Director
+>>> Direct: +1 (212) 555-1247
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

@@ -1,0 +1,77 @@
+From: "Chloe Bennett" <cbennett@pacifichedge.sg>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: Mobile Banking Mobile App Biometric Authentication Lockout & Token Expiry [MOB-BNK-2026223]
+Date: Tue, 16 Jun 2026 03:56:00 +0000
+Message-ID: <BNK-2026223-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026223-turn3@banktech-ops.internal>
+References: <BNK-2026223-turn1@banktech-ops.internal> <BNK-2026223-turn2@banktech-ops.internal> <BNK-2026223-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026223
+X-Domain-Category: Digital Banking & Open API
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Kavita Patel,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Chloe Bennett
+Risk & Liquidity Controller
+
+
+On Mon, 15 Jun 2026 23:47:00 +0000, Kavita Patel <kpatel@banking-solutions.internal> wrote:
+> Hi Chloe Bennett,
+> 
+> Root Cause Analysis and Resolution:
+> Bug in iOS app keychain migration logic caused corruption of the private key container when updating from iOS 18 beta. Released hotfix v6.4.3 to the App Store, and cleared server-side device binding tokens for affected users. Switched SMS gateway provider from Twilio secondary route to Infobip direct SMPP bind.
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026223.
+> 
+> Best regards,
+> Kavita Patel
+> Trade Engine Escalations
+> 
+>
+> On Mon, 15 Jun 2026 20:22:00 +0000, Kavita Patel <kpatel@banking-solutions.internal> wrote:
+>> Hi Chloe Bennett,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026223 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Digital Banking & Open API.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Kavita Patel
+>> Trade Engine Escalations
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Mon, 15 Jun 2026 17:55:00 +0000, Chloe Bennett <cbennett@pacifichedge.sg> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> iOS mobile banking app users on version 6.4.2 unable to authenticate using FaceID; app displays 'SEC_ERR_KEYSTORE_INVALID' and permanently locks user credentials.
+>>> 
+>>> Secondary Question / Request:
+>>> Password reset SMS OTP delivery is delayed by up to 15 minutes across major telecom carriers.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Chloe Bennett
+>>> Risk & Liquidity Controller
+>>> Direct: +1 (212) 555-1223
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

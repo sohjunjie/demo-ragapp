@@ -1,0 +1,77 @@
+From: "Marcus Vance" <marcus.vance@apexwealth.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [WORKAROUND ACTIVE] ISDA CSA Daily Margin Call Calculation Error & Collateral Discrepancy [CSA-BNK-2026065]
+Date: Wed, 25 Feb 2026 12:24:00 +0000
+Message-ID: <BNK-2026065-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026065-turn3@banktech-ops.internal>
+References: <BNK-2026065-turn1@banktech-ops.internal> <BNK-2026065-turn2@banktech-ops.internal> <BNK-2026065-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026065
+X-Domain-Category: Capital Markets & Treasury
+X-Thread-Resolution-Status: WORKAROUND
+
+Hi Gregory Bell,
+
+Acknowledged. We have applied the workaround instructions, and today's urgent settlements have processed successfully. 
+
+Please keep us updated once the permanent patch CR-8065 is successfully deployed to production this weekend.
+
+Regards,
+Marcus Vance
+Operations Lead
+
+
+On Wed, 25 Feb 2026 04:09:00 +0000, Gregory Bell <gbell@fintechops-tier3.com> wrote:
+> Hi Marcus Vance,
+> 
+> Our engineering team has identified the failure mechanism, but a permanent core patch will require scheduled weekend downtime. 
+> 
+> In the interim, we have implemented the following operational WORKAROUND:
+> Agreed with counterparty to book a temporary disputed margin buffer of $2.4M under ISDA dispute resolution clause 5, allowing time to recalculate the portfolio over the weekend.
+> 
+> Please execute your critical transactions using this intermediate path. We have linked this to Change Request CR-8065 for permanent deployment during Sunday's maintenance window.
+> 
+> Best regards,
+> Gregory Bell
+> Clearing Support Engineer
+> 
+>
+> On Wed, 25 Feb 2026 00:30:00 +0000, Gregory Bell <gbell@fintechops-tier3.com> wrote:
+>> Hi Marcus Vance,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026065 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Capital Markets & Treasury.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Gregory Bell
+>> Clearing Support Engineer
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Tue, 24 Feb 2026 22:05:00 +0000, Marcus Vance <marcus.vance@apexwealth.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Daily mark-to-market variation margin calculation with counterparty JP Morgan shows an unexplained discrepancy of $4,820,000 on our interest rate swap portfolio.
+>>> 
+>>> Secondary Question / Request:
+>>> Separate issue: collateral asset rehypothecation report is showing duplicate entries for US Treasury Bill Cusip 912797...
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Marcus Vance
+>>> Operations Lead
+>>> Direct: +1 (212) 555-1065
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

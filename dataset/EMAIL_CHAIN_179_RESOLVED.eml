@@ -1,0 +1,77 @@
+From: "Carlos Mendoza" <cmendoza@iberia-banco.es>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: Wealth Management Portfolio Rebalancing Trade Allocation Mismatch [WM-BNK-2026179]
+Date: Sat, 16 May 2026 08:54:00 +0000
+Message-ID: <BNK-2026179-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026179-turn3@banktech-ops.internal>
+References: <BNK-2026179-turn1@banktech-ops.internal> <BNK-2026179-turn2@banktech-ops.internal> <BNK-2026179-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026179
+X-Domain-Category: Wealth Management & Private Banking
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Tara Deshmukh,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Carlos Mendoza
+Payment Switch Ops
+
+
+On Sat, 16 May 2026 00:49:00 +0000, Tara Deshmukh <tdeshmukh@finserv-systems.internal> wrote:
+> Hi Carlos Mendoza,
+> 
+> Root Cause Analysis and Resolution:
+> The order management system (Charles River) had an out-of-bounds rounding error when allocating fractional shares across segregated sub-accounts. Patched allocation engine rounding precision to 6 decimal places and executed retroactive block allocation. Updated CHF/USD FX spot feed for statement generation.
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026179.
+> 
+> Best regards,
+> Tara Deshmukh
+> L3 Tier Support Tech Lead
+> 
+>
+> On Fri, 15 May 2026 21:02:00 +0000, Tara Deshmukh <tdeshmukh@finserv-systems.internal> wrote:
+>> Hi Carlos Mendoza,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026179 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Wealth Management & Private Banking.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Tara Deshmukh
+>> L3 Tier Support Tech Lead
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Fri, 15 May 2026 19:35:00 +0000, Carlos Mendoza <cmendoza@iberia-banco.es> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Automated quarterly portfolio rebalancing for 42 discretionary wealth mandates failed to allocate block equity orders for US Tech Equities, resulting in cash uninvested drag.
+>>> 
+>>> Secondary Question / Request:
+>>> Additionally, quarterly client valuation statements are showing incorrect currency conversion rates for Swiss Franc holdings.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Carlos Mendoza
+>>> Payment Switch Ops
+>>> Direct: +1 (212) 555-1179
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

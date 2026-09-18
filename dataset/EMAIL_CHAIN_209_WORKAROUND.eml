@@ -1,0 +1,77 @@
+From: "Carlos Mendoza" <cmendoza@iberia-banco.es>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [WORKAROUND ACTIVE] Wealth Management Portfolio Rebalancing Trade Allocation Mismatch [WM-BNK-2026209]
+Date: Sat, 06 Jun 2026 06:22:00 +0000
+Message-ID: <BNK-2026209-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026209-turn3@banktech-ops.internal>
+References: <BNK-2026209-turn1@banktech-ops.internal> <BNK-2026209-turn2@banktech-ops.internal> <BNK-2026209-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026209
+X-Domain-Category: Wealth Management & Private Banking
+X-Thread-Resolution-Status: WORKAROUND
+
+Hi Kavita Patel,
+
+Acknowledged. We have applied the workaround instructions, and today's urgent settlements have processed successfully. 
+
+Please keep us updated once the permanent patch CR-8209 is successfully deployed to production this weekend.
+
+Regards,
+Carlos Mendoza
+Payment Switch Ops
+
+
+On Fri, 05 Jun 2026 21:14:00 +0000, Kavita Patel <kpatel@banking-solutions.internal> wrote:
+> Hi Carlos Mendoza,
+> 
+> Our engineering team has identified the failure mechanism, but a permanent core patch will require scheduled weekend downtime. 
+> 
+> In the interim, we have implemented the following operational WORKAROUND:
+> Executing broker agreed to break the parent block order into individual ticket executions per client account at average volume-weighted price (VWAP).
+> 
+> Please execute your critical transactions using this intermediate path. We have linked this to Change Request CR-8209 for permanent deployment during Sunday's maintenance window.
+> 
+> Best regards,
+> Kavita Patel
+> Trade Engine Escalations
+> 
+>
+> On Fri, 05 Jun 2026 18:42:00 +0000, Kavita Patel <kpatel@banking-solutions.internal> wrote:
+>> Hi Carlos Mendoza,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026209 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Wealth Management & Private Banking.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Kavita Patel
+>> Trade Engine Escalations
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Fri, 05 Jun 2026 17:05:00 +0000, Carlos Mendoza <cmendoza@iberia-banco.es> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Automated quarterly portfolio rebalancing for 42 discretionary wealth mandates failed to allocate block equity orders for US Tech Equities, resulting in cash uninvested drag.
+>>> 
+>>> Secondary Question / Request:
+>>> Additionally, quarterly client valuation statements are showing incorrect currency conversion rates for Swiss Franc holdings.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Carlos Mendoza
+>>> Payment Switch Ops
+>>> Direct: +1 (212) 555-1209
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

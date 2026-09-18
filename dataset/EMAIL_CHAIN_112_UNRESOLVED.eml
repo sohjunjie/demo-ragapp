@@ -1,0 +1,77 @@
+From: "Ahmed Al-Mansoor" <a.mansoor@gulfcredit.ae>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [P1 - UNRESOLVED ESCALATION] Corporate Dormant Account Reactivation & KYC Document Hold Rejection [KYC-BNK-2026112]
+Date: Mon, 30 Mar 2026 15:07:00 +0000
+Message-ID: <BNK-2026112-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026112-turn3@banktech-ops.internal>
+References: <BNK-2026112-turn1@banktech-ops.internal> <BNK-2026112-turn2@banktech-ops.internal> <BNK-2026112-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026112
+X-Domain-Category: Core Banking & Account Servicing
+X-Thread-Resolution-Status: UNRESOLVED
+
+Hi Alexander Wright,
+
+Understood, but please be aware that the delay is placing us in breach of regulatory settlement thresholds. The head of operations has been notified. 
+
+We will join the emergency bridge call immediately.
+
+Regards,
+Ahmed Al-Mansoor
+Cash Management Director
+
+
+On Mon, 30 Mar 2026 03:01:00 +0000, Alexander Wright <awright@banktech-support.com> wrote:
+> Hi Ahmed Al-Mansoor,
+> 
+> Current Status Update:
+> The compliance core database is rejecting all state transitions for accounts under legal review because of an unresolved database trigger locking foreign keys. Issue escalated to DBA architectural council.
+> 
+> Given the severity and lack of an immediate workaround, this issue is flagged as a blocker. We are scheduling an emergency cross-functional incident bridge with external vendors and tier-3 architects.
+> 
+> We will provide hourly updates on the conference bridge.
+> 
+> Best regards,
+> Alexander Wright
+> Senior Integration Engineer
+> 
+>
+> On Sun, 29 Mar 2026 21:46:00 +0000, Alexander Wright <awright@banktech-support.com> wrote:
+>> Hi Ahmed Al-Mansoor,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026112 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Core Banking & Account Servicing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Alexander Wright
+>> Senior Integration Engineer
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Sun, 29 Mar 2026 18:10:00 +0000, Ahmed Al-Mansoor <a.mansoor@gulfcredit.ae> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> High-net-worth commercial entity account (ID: AC-984102) unable to execute outbound wire transfers following reactivation. The UI displays 'KYC_BLOCK_ACTIVE' despite compliance sign-off document uploaded 48 hours ago.
+>>> 
+>>> Secondary Question / Request:
+>>> Client also requested increasing the daily wire limit from $5M to $25M under their master treasury agreement.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Ahmed Al-Mansoor
+>>> Cash Management Director
+>>> Direct: +1 (212) 555-1112
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

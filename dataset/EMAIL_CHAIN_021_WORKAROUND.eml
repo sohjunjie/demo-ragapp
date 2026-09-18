@@ -1,0 +1,77 @@
+From: "Priya Nair" <priya.nair@citadelsecurities-ops.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [WORKAROUND ACTIVE] EOD General Ledger Batch Abort & Cross-Currency Sweep Failure [BAT-BNK-2026021]
+Date: Sun, 25 Jan 2026 19:08:00 +0000
+Message-ID: <BNK-2026021-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026021-turn3@banktech-ops.internal>
+References: <BNK-2026021-turn1@banktech-ops.internal> <BNK-2026021-turn2@banktech-ops.internal> <BNK-2026021-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026021
+X-Domain-Category: Core Banking & Account Servicing
+X-Thread-Resolution-Status: WORKAROUND
+
+Hi Alexander Wright,
+
+Acknowledged. We have applied the workaround instructions, and today's urgent settlements have processed successfully. 
+
+Please keep us updated once the permanent patch CR-8021 is successfully deployed to production this weekend.
+
+Regards,
+Priya Nair
+Settlements Analyst
+
+
+On Sun, 25 Jan 2026 14:02:00 +0000, Alexander Wright <awright@banktech-support.com> wrote:
+> Hi Priya Nair,
+> 
+> Our engineering team has identified the failure mechanism, but a permanent core patch will require scheduled weekend downtime. 
+> 
+> In the interim, we have implemented the following operational WORKAROUND:
+> Excluded the multi-currency sweep step from the main close sequence and ran the remaining general ledger jobs to generate preliminary regulatory balance sheets. Sweep job was executed manually during maintenance window.
+> 
+> Please execute your critical transactions using this intermediate path. We have linked this to Change Request CR-8021 for permanent deployment during Sunday's maintenance window.
+> 
+> Best regards,
+> Alexander Wright
+> Senior Integration Engineer
+> 
+>
+> On Sun, 25 Jan 2026 10:25:00 +0000, Alexander Wright <awright@banktech-support.com> wrote:
+>> Hi Priya Nair,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026021 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Core Banking & Account Servicing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Alexander Wright
+>> Senior Integration Engineer
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Sun, 25 Jan 2026 06:45:00 +0000, Priya Nair <priya.nair@citadelsecurities-ops.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> The End-of-Day (EOD) financial close batch failed at Step 48 (Multi-Currency Account Sweep). Database returned ORA-00054: resource busy and acquire with NOWAIT specified.
+>>> 
+>>> Secondary Question / Request:
+>>> Also, five corporate multi-currency checking accounts have negative unapproved balances that bypassed the automated hard-stop stop-payment rule.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Priya Nair
+>>> Settlements Analyst
+>>> Direct: +1 (212) 555-1021
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

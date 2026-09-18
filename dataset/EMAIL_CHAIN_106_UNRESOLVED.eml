@@ -1,0 +1,77 @@
+From: "Priya Nair" <priya.nair@citadelsecurities-ops.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [P1 - UNRESOLVED ESCALATION] URGENT: SEPA Instant Payment Settlement Failures on BIC CHASUS33 [REF-BNK-2026106]
+Date: Thu, 26 Mar 2026 04:03:00 +0000
+Message-ID: <BNK-2026106-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026106-turn3@banktech-ops.internal>
+References: <BNK-2026106-turn1@banktech-ops.internal> <BNK-2026106-turn2@banktech-ops.internal> <BNK-2026106-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026106
+X-Domain-Category: Payments, Wire & Clearing
+X-Thread-Resolution-Status: UNRESOLVED
+
+Hi Nils Lindqvist,
+
+Understood, but please be aware that the delay is placing us in breach of regulatory settlement thresholds. The head of operations has been notified. 
+
+We will join the emergency bridge call immediately.
+
+Regards,
+Priya Nair
+Settlements Analyst
+
+
+On Thu, 26 Mar 2026 00:51:00 +0000, Nils Lindqvist <nlindqvist@coreplatform.internal> wrote:
+> Hi Priya Nair,
+> 
+> Current Status Update:
+> L3 engineering analyzed the thread dumps from node-03 and found race conditions inside the RTGS core message queue. No patch is available yet; ticket escalated to vendor (Finastra) under Severity 1. Awaiting patch ETA.
+> 
+> Given the severity and lack of an immediate workaround, this issue is flagged as a blocker. We are scheduling an emergency cross-functional incident bridge with external vendors and tier-3 architects.
+> 
+> We will provide hourly updates on the conference bridge.
+> 
+> Best regards,
+> Nils Lindqvist
+> Payments Infrastructure Lead
+> 
+>
+> On Wed, 25 Mar 2026 19:23:00 +0000, Nils Lindqvist <nlindqvist@coreplatform.internal> wrote:
+>> Hi Priya Nair,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026106 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Payments, Wire & Clearing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Nils Lindqvist
+>> Payments Infrastructure Lead
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Wed, 25 Mar 2026 15:40:00 +0000, Priya Nair <priya.nair@citadelsecurities-ops.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> pacs.008 messages for instant credit transfers rejected with error code 'AM04' (Insufficient Funds in clearing account), despite TARGET2 memo balance showing €45M surplus.
+>>> 
+>>> Secondary Question / Request:
+>>> Also, our automated clearing cut-off notifications for CHAPS failed to trigger at 16:00 BST.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Priya Nair
+>>> Settlements Analyst
+>>> Direct: +1 (212) 555-1106
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

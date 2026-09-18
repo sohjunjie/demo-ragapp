@@ -1,0 +1,12 @@
+spring:
+  ai:
+    google:
+      genai:
+        api-key: test-dummy-key
+    embedding.transformer.enabled: true
+    embedding.transformer.cache.directory: ./onnx-models
+  application.name: test-demo-ragapp
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:

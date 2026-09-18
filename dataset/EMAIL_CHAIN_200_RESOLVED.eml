@@ -1,0 +1,77 @@
+From: "Marcus Vance" <marcus.vance@apexwealth.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: ISDA CSA Daily Margin Call Calculation Error & Collateral Discrepancy [CSA-BNK-2026200]
+Date: Sun, 31 May 2026 07:11:00 +0000
+Message-ID: <BNK-2026200-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026200-turn3@banktech-ops.internal>
+References: <BNK-2026200-turn1@banktech-ops.internal> <BNK-2026200-turn2@banktech-ops.internal> <BNK-2026200-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026200
+X-Domain-Category: Capital Markets & Treasury
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Tara Deshmukh,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Marcus Vance
+Operations Lead
+
+
+On Sat, 30 May 2026 18:45:00 +0000, Tara Deshmukh <tdeshmukh@finserv-systems.internal> wrote:
+> Hi Marcus Vance,
+> 
+> Root Cause Analysis and Resolution:
+> Discovered that the discount curve configuration for SOFR discounting was incorrectly set to 30/360 day-count convention instead of Actual/360 in the Calypso engine. Corrected the curve definition and re-ran EOD batch valuation. Fixed the duplicate Cusip entry caused by a primary key collision in the nightly ETL job.
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026200.
+> 
+> Best regards,
+> Tara Deshmukh
+> L3 Tier Support Tech Lead
+> 
+>
+> On Sat, 30 May 2026 12:34:00 +0000, Tara Deshmukh <tdeshmukh@finserv-systems.internal> wrote:
+>> Hi Marcus Vance,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026200 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Capital Markets & Treasury.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Tara Deshmukh
+>> L3 Tier Support Tech Lead
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Sat, 30 May 2026 08:50:00 +0000, Marcus Vance <marcus.vance@apexwealth.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Daily mark-to-market variation margin calculation with counterparty JP Morgan shows an unexplained discrepancy of $4,820,000 on our interest rate swap portfolio.
+>>> 
+>>> Secondary Question / Request:
+>>> Separate issue: collateral asset rehypothecation report is showing duplicate entries for US Treasury Bill Cusip 912797...
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Marcus Vance
+>>> Operations Lead
+>>> Direct: +1 (212) 555-1200
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

@@ -1,0 +1,77 @@
+From: "Priya Nair" <priya.nair@citadelsecurities-ops.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [P1 - UNRESOLVED ESCALATION] Card Fraud Rule False Positive Spike on Cross-Border E-Commerce [FRD-BNK-2026026]
+Date: Thu, 29 Jan 2026 07:55:00 +0000
+Message-ID: <BNK-2026026-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026026-turn3@banktech-ops.internal>
+References: <BNK-2026026-turn1@banktech-ops.internal> <BNK-2026026-turn2@banktech-ops.internal> <BNK-2026026-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026026
+X-Domain-Category: Risk, Compliance & Fraud
+X-Thread-Resolution-Status: UNRESOLVED
+
+Hi Mei Ling Zhou,
+
+Understood, but please be aware that the delay is placing us in breach of regulatory settlement thresholds. The head of operations has been notified. 
+
+We will join the emergency bridge call immediately.
+
+Regards,
+Priya Nair
+Settlements Analyst
+
+
+On Wed, 28 Jan 2026 21:43:00 +0000, Mei Ling Zhou <mlzhou@finflow-core.internal> wrote:
+> Hi Priya Nair,
+> 
+> Current Status Update:
+> Transactions continue to be rejected by the Visa DPS gateway despite rules being relaxed. Investigation has been escalated to Visa network engineers to check merchant risk profile flags.
+> 
+> Given the severity and lack of an immediate workaround, this issue is flagged as a blocker. We are scheduling an emergency cross-functional incident bridge with external vendors and tier-3 architects.
+> 
+> We will provide hourly updates on the conference bridge.
+> 
+> Best regards,
+> Mei Ling Zhou
+> Database & Ledger Ops
+> 
+>
+> On Wed, 28 Jan 2026 16:31:00 +0000, Mei Ling Zhou <mlzhou@finflow-core.internal> wrote:
+>> Hi Priya Nair,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026026 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Risk, Compliance & Fraud.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Mei Ling Zhou
+>> Database & Ledger Ops
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Wed, 28 Jan 2026 15:20:00 +0000, Priya Nair <priya.nair@citadelsecurities-ops.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Sudden surge in card transaction declines (Decline Code 59: Suspected Fraud) affecting over 1,800 retail cardholders purchasing on European travel portals.
+>>> 
+>>> Secondary Question / Request:
+>>> Customer service phone IVR queues are overwhelmed with wait times exceeding 45 minutes.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Priya Nair
+>>> Settlements Analyst
+>>> Direct: +1 (212) 555-1026
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

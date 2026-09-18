@@ -1,0 +1,66 @@
+From: "Tara Deshmukh" <tdeshmukh@finserv-systems.internal>
+To: "Priya Nair" <priya.nair@citadelsecurities-ops.com>
+Subject: [AUTO-CLOSED / ABANDONED] URGENT: SEPA Instant Payment Settlement Failures on BIC BARCGB22 [REF-BNK-2026151]
+Date: Sun, 26 Apr 2026 16:45:00 +0000
+Message-ID: <BNK-2026151-turn3-autoclose@banktech-ops.internal>
+In-Reply-To: <BNK-2026151-turn2@banktech-ops.internal>
+References: <BNK-2026151-turn1@banktech-ops.internal> <BNK-2026151-turn2@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026151
+X-Domain-Category: Payments, Wire & Clearing
+X-Thread-Resolution-Status: ABANDONED
+
+Hi Priya Nair,
+
+Following up on ticket BNK-2026151. 
+
+Support requested updated pacs.008 XML logs and full gateway stack traces. User never replied after 3 follow-ups; issue auto-closed due to inactivity.
+
+We have attempted to reach you over phone and email to collect additional network captures and confirmation. As we have not received a response within the standard 72-hour SLA window, this ticket is being marked as ABANDONED / AUTO-CLOSED.
+
+If you are still experiencing this issue, please reply directly to this thread or open a new ticket referencing BNK-2026151.
+
+Sincerely,
+Automated Service Desk & Tara Deshmukh
+Enterprise Operations
+
+
+On Sun, 26 Apr 2026 11:16:00 +0000, Tara Deshmukh <tdeshmukh@finserv-systems.internal> wrote:
+> Hi Priya Nair,
+> 
+> Thank you for raising this. Incident ticket BNK-2026151 has been registered with Priority P1-High.
+> 
+> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Payments, Wire & Clearing.
+> Initial check:
+> - Validated telemetry across incoming message brokers.
+> - Investigating database locks and upstream clearing network status.
+> 
+> I will update you as soon as the diagnostics complete.
+> 
+> Best regards,
+> Tara Deshmukh
+> L3 Tier Support Tech Lead
+> Enterprise Financial Support Group
+> 
+>
+> On Sun, 26 Apr 2026 08:55:00 +0000, Priya Nair <priya.nair@citadelsecurities-ops.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> pacs.008 messages for instant credit transfers rejected with error code 'AM04' (Insufficient Funds in clearing account), despite TARGET2 memo balance showing €45M surplus.
+>>> 
+>>> Secondary Question / Request:
+>>> Also, our automated clearing cut-off notifications for CHAPS failed to trigger at 16:00 BST.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Priya Nair
+>>> Settlements Analyst
+>>> Direct: +1 (212) 555-1151
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

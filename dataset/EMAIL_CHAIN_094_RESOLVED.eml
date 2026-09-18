@@ -1,0 +1,77 @@
+From: "Carlos Mendoza" <cmendoza@iberia-banco.es>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: FX Forward Maturity Rollover Rollback & Fixing Rate Mismatch [FX-BNK-2026094]
+Date: Wed, 18 Mar 2026 02:09:00 +0000
+Message-ID: <BNK-2026094-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026094-turn3@banktech-ops.internal>
+References: <BNK-2026094-turn1@banktech-ops.internal> <BNK-2026094-turn2@banktech-ops.internal> <BNK-2026094-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026094
+X-Domain-Category: Capital Markets & Treasury
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Samuel Becker,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Carlos Mendoza
+Payment Switch Ops
+
+
+On Tue, 17 Mar 2026 19:03:00 +0000, Samuel Becker <sbecker@cloudfin-systems.com> wrote:
+> Hi Carlos Mendoza,
+> 
+> Root Cause Analysis and Resolution:
+> Fixed the socket listener IP configuration on the market data feed adapter that lost heartbeat post-firewall rule update. Pushed manual fixing rate override across all 14 affected forward trades. Updated repo collateral haircut master table for ISIN FR001400...
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026094.
+> 
+> Best regards,
+> Samuel Becker
+> API & Gateway Architect
+> 
+>
+> On Tue, 17 Mar 2026 12:45:00 +0000, Samuel Becker <sbecker@cloudfin-systems.com> wrote:
+>> Hi Carlos Mendoza,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026094 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Capital Markets & Treasury.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Samuel Becker
+>> API & Gateway Architect
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Tue, 17 Mar 2026 10:40:00 +0000, Carlos Mendoza <cmendoza@iberia-banco.es> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> EUR/USD 3-month forward contracts ($85M notional) rolling over today failed to book spot fixing rates from Refinitiv tick stream, leaving contracts in 'PENDING_FIXING' state.
+>>> 
+>>> Secondary Question / Request:
+>>> While looking into this, trader also noticed that overnight repo haircuts for French sovereign OATs are calculated at 2.5% instead of 1.5%.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Carlos Mendoza
+>>> Payment Switch Ops
+>>> Direct: +1 (212) 555-1094
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

@@ -1,0 +1,77 @@
+From: "Chloe Bennett" <cbennett@pacifichedge.sg>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [P1 - UNRESOLVED ESCALATION] Fedwire Inbound Queue Intermittent Timeout & Nostro Reconciliation Variance [INC-BNK-2026048]
+Date: Fri, 13 Feb 2026 19:33:00 +0000
+Message-ID: <BNK-2026048-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026048-turn3@banktech-ops.internal>
+References: <BNK-2026048-turn1@banktech-ops.internal> <BNK-2026048-turn2@banktech-ops.internal> <BNK-2026048-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026048
+X-Domain-Category: Payments, Wire & Clearing
+X-Thread-Resolution-Status: UNRESOLVED
+
+Hi Kavita Patel,
+
+Understood, but please be aware that the delay is placing us in breach of regulatory settlement thresholds. The head of operations has been notified. 
+
+We will join the emergency bridge call immediately.
+
+Regards,
+Chloe Bennett
+Risk & Liquidity Controller
+
+
+On Fri, 13 Feb 2026 08:21:00 +0000, Kavita Patel <kpatel@banking-solutions.internal> wrote:
+> Hi Chloe Bennett,
+> 
+> Current Status Update:
+> Investigated the MQ connection drops. Network captures reveal packet drops across the dedicated MPLS link to the FedLine gateway. Verizon NOC has not yet pinpointed the physical line fault.
+> 
+> Given the severity and lack of an immediate workaround, this issue is flagged as a blocker. We are scheduling an emergency cross-functional incident bridge with external vendors and tier-3 architects.
+> 
+> We will provide hourly updates on the conference bridge.
+> 
+> Best regards,
+> Kavita Patel
+> Trade Engine Escalations
+> 
+>
+> On Fri, 13 Feb 2026 03:08:00 +0000, Kavita Patel <kpatel@banking-solutions.internal> wrote:
+>> Hi Chloe Bennett,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026048 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Payments, Wire & Clearing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Kavita Patel
+>> Trade Engine Escalations
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Thu, 12 Feb 2026 23:30:00 +0000, Chloe Bennett <cbennett@pacifichedge.sg> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Inbound Fedwire messages (IMAD/OMAD) failing to post to real-time GL, causing a $32.4M discrepancy in Federal Reserve Bank of New York nostro account reconciliation.
+>>> 
+>>> Secondary Question / Request:
+>>> Additionally, daytime liquidity overdraft charges alert triggered erroneously on our corporate dashboard.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Chloe Bennett
+>>> Risk & Liquidity Controller
+>>> Direct: +1 (212) 555-1048
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

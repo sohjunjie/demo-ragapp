@@ -1,0 +1,21 @@
+spring:
+  ai:
+    google:
+      genai:
+        api-key: ${GEMINI_API_KEY:}
+        chat:
+          options:
+            model: gemini-3.8-flash
+    embedding.transformer.enabled: true
+    embedding.transformer.cache.directory: ./onnx-models
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 384
+  application.name: demo-ragapp
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ragdb
+    username: postgres
+    password: postgres

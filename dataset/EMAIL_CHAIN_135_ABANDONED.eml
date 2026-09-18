@@ -1,0 +1,66 @@
+From: "Gregory Bell" <gbell@fintechops-tier3.com>
+To: "Marcus Vance" <marcus.vance@apexwealth.com>
+Subject: [AUTO-CLOSED / ABANDONED] Private Banking Custody Asset Transfer & W-8BEN Tax Withholding Hold [CUST-BNK-2026135]
+Date: Wed, 15 Apr 2026 11:02:00 +0000
+Message-ID: <BNK-2026135-turn3-autoclose@banktech-ops.internal>
+In-Reply-To: <BNK-2026135-turn2@banktech-ops.internal>
+References: <BNK-2026135-turn1@banktech-ops.internal> <BNK-2026135-turn2@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026135
+X-Domain-Category: Wealth Management & Private Banking
+X-Thread-Resolution-Status: ABANDONED
+
+Hi Marcus Vance,
+
+Following up on ticket BNK-2026135. 
+
+Client decided to liquidate securities on external broker platform rather than completing custody transfer. Operations file closed.
+
+We have attempted to reach you over phone and email to collect additional network captures and confirmation. As we have not received a response within the standard 72-hour SLA window, this ticket is being marked as ABANDONED / AUTO-CLOSED.
+
+If you are still experiencing this issue, please reply directly to this thread or open a new ticket referencing BNK-2026135.
+
+Sincerely,
+Automated Service Desk & Gregory Bell
+Enterprise Operations
+
+
+On Wed, 15 Apr 2026 06:22:00 +0000, Gregory Bell <gbell@fintechops-tier3.com> wrote:
+> Hi Marcus Vance,
+> 
+> Thank you for raising this. Incident ticket BNK-2026135 has been registered with Priority P1-High.
+> 
+> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Wealth Management & Private Banking.
+> Initial check:
+> - Validated telemetry across incoming message brokers.
+> - Investigating database locks and upstream clearing network status.
+> 
+> I will update you as soon as the diagnostics complete.
+> 
+> Best regards,
+> Gregory Bell
+> Clearing Support Engineer
+> Enterprise Financial Support Group
+> 
+>
+> On Wed, 15 Apr 2026 04:15:00 +0000, Marcus Vance <marcus.vance@apexwealth.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Transfer of $18M in US dividend-yielding securities from UBS Zurich to our custody account is blocked by IRS 30% non-resident alien withholding tax penalty.
+>>> 
+>>> Secondary Question / Request:
+>>> Beneficiary also requested access to the VIP Lombard credit line portal.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Marcus Vance
+>>> Operations Lead
+>>> Direct: +1 (212) 555-1135
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

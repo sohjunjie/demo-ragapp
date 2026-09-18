@@ -1,0 +1,77 @@
+From: "Carlos Mendoza" <cmendoza@iberia-banco.es>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [WORKAROUND ACTIVE] FX Forward Maturity Rollover Rollback & Fixing Rate Mismatch [FX-BNK-2026049]
+Date: Sat, 14 Feb 2026 10:00:00 +0000
+Message-ID: <BNK-2026049-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026049-turn3@banktech-ops.internal>
+References: <BNK-2026049-turn1@banktech-ops.internal> <BNK-2026049-turn2@banktech-ops.internal> <BNK-2026049-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026049
+X-Domain-Category: Capital Markets & Treasury
+X-Thread-Resolution-Status: WORKAROUND
+
+Hi Alexander Wright,
+
+Acknowledged. We have applied the workaround instructions, and today's urgent settlements have processed successfully. 
+
+Please keep us updated once the permanent patch CR-8049 is successfully deployed to production this weekend.
+
+Regards,
+Carlos Mendoza
+Payment Switch Ops
+
+
+On Fri, 13 Feb 2026 22:38:00 +0000, Alexander Wright <awright@banktech-support.com> wrote:
+> Hi Carlos Mendoza,
+> 
+> Our engineering team has identified the failure mechanism, but a permanent core patch will require scheduled weekend downtime. 
+> 
+> In the interim, we have implemented the following operational WORKAROUND:
+> Authorized the trading desk to execute manual override bookings via the risk GUI using ECB reference rates, deferring the automated tick feed fix until after market close.
+> 
+> Please execute your critical transactions using this intermediate path. We have linked this to Change Request CR-8049 for permanent deployment during Sunday's maintenance window.
+> 
+> Best regards,
+> Alexander Wright
+> Senior Integration Engineer
+> 
+>
+> On Fri, 13 Feb 2026 18:59:00 +0000, Alexander Wright <awright@banktech-support.com> wrote:
+>> Hi Carlos Mendoza,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026049 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Capital Markets & Treasury.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Alexander Wright
+>> Senior Integration Engineer
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Fri, 13 Feb 2026 17:25:00 +0000, Carlos Mendoza <cmendoza@iberia-banco.es> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> EUR/USD 3-month forward contracts ($85M notional) rolling over today failed to book spot fixing rates from Refinitiv tick stream, leaving contracts in 'PENDING_FIXING' state.
+>>> 
+>>> Secondary Question / Request:
+>>> While looking into this, trader also noticed that overnight repo haircuts for French sovereign OATs are calculated at 2.5% instead of 1.5%.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Carlos Mendoza
+>>> Payment Switch Ops
+>>> Direct: +1 (212) 555-1049
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

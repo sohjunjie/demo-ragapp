@@ -1,0 +1,77 @@
+From: "Ahmed Al-Mansoor" <a.mansoor@gulfcredit.ae>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [WORKAROUND ACTIVE] Corporate Dormant Account Reactivation & KYC Document Hold Rejection [KYC-BNK-2026217]
+Date: Thu, 11 Jun 2026 19:55:00 +0000
+Message-ID: <BNK-2026217-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026217-turn3@banktech-ops.internal>
+References: <BNK-2026217-turn1@banktech-ops.internal> <BNK-2026217-turn2@banktech-ops.internal> <BNK-2026217-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026217
+X-Domain-Category: Core Banking & Account Servicing
+X-Thread-Resolution-Status: WORKAROUND
+
+Hi Alexander Wright,
+
+Acknowledged. We have applied the workaround instructions, and today's urgent settlements have processed successfully. 
+
+Please keep us updated once the permanent patch CR-8217 is successfully deployed to production this weekend.
+
+Regards,
+Ahmed Al-Mansoor
+Cash Management Director
+
+
+On Thu, 11 Jun 2026 15:38:00 +0000, Alexander Wright <awright@banktech-support.com> wrote:
+> Hi Ahmed Al-Mansoor,
+> 
+> Our engineering team has identified the failure mechanism, but a permanent core patch will require scheduled weekend downtime. 
+> 
+> In the interim, we have implemented the following operational WORKAROUND:
+> Directly injected an administrative bypass token into the account authorization cache (valid for 72 hours) to permit vital payroll wires, pending Kafka consumer service repair.
+> 
+> Please execute your critical transactions using this intermediate path. We have linked this to Change Request CR-8217 for permanent deployment during Sunday's maintenance window.
+> 
+> Best regards,
+> Alexander Wright
+> Senior Integration Engineer
+> 
+>
+> On Thu, 11 Jun 2026 10:10:00 +0000, Alexander Wright <awright@banktech-support.com> wrote:
+>> Hi Ahmed Al-Mansoor,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026217 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Core Banking & Account Servicing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Alexander Wright
+>> Senior Integration Engineer
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Thu, 11 Jun 2026 07:25:00 +0000, Ahmed Al-Mansoor <a.mansoor@gulfcredit.ae> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> High-net-worth commercial entity account (ID: AC-984102) unable to execute outbound wire transfers following reactivation. The UI displays 'KYC_BLOCK_ACTIVE' despite compliance sign-off document uploaded 48 hours ago.
+>>> 
+>>> Secondary Question / Request:
+>>> Client also requested increasing the daily wire limit from $5M to $25M under their master treasury agreement.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Ahmed Al-Mansoor
+>>> Cash Management Director
+>>> Direct: +1 (212) 555-1217
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

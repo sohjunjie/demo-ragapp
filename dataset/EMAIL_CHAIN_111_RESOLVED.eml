@@ -1,0 +1,77 @@
+From: "Priya Nair" <priya.nair@citadelsecurities-ops.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: EOD General Ledger Batch Abort & Cross-Currency Sweep Failure [BAT-BNK-2026111]
+Date: Sun, 29 Mar 2026 22:45:00 +0000
+Message-ID: <BNK-2026111-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026111-turn3@banktech-ops.internal>
+References: <BNK-2026111-turn1@banktech-ops.internal> <BNK-2026111-turn2@banktech-ops.internal> <BNK-2026111-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026111
+X-Domain-Category: Core Banking & Account Servicing
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Kavita Patel,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Priya Nair
+Settlements Analyst
+
+
+On Sun, 29 Mar 2026 15:24:00 +0000, Kavita Patel <kpatel@banking-solutions.internal> wrote:
+> Hi Priya Nair,
+> 
+> Root Cause Analysis and Resolution:
+> Identified a rogue analytical query holding an exclusive table lock on TB_CUST_ACCOUNTS. Terminated the offending SPID session, flushed the lock tables, and re-executed Batch Job #48 successfully. Added an explicit lock timeout and enforced the hard-stop limit rule on negative balances.
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026111.
+> 
+> Best regards,
+> Kavita Patel
+> Trade Engine Escalations
+> 
+>
+> On Sun, 29 Mar 2026 10:49:00 +0000, Kavita Patel <kpatel@banking-solutions.internal> wrote:
+>> Hi Priya Nair,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026111 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Core Banking & Account Servicing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Kavita Patel
+>> Trade Engine Escalations
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Sun, 29 Mar 2026 09:15:00 +0000, Priya Nair <priya.nair@citadelsecurities-ops.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> The End-of-Day (EOD) financial close batch failed at Step 48 (Multi-Currency Account Sweep). Database returned ORA-00054: resource busy and acquire with NOWAIT specified.
+>>> 
+>>> Secondary Question / Request:
+>>> Also, five corporate multi-currency checking accounts have negative unapproved balances that bypassed the automated hard-stop stop-payment rule.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Priya Nair
+>>> Settlements Analyst
+>>> Direct: +1 (212) 555-1111
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

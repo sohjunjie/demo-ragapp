@@ -1,0 +1,77 @@
+From: "Priya Nair" <priya.nair@citadelsecurities-ops.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: Card Fraud Rule False Positive Spike on Cross-Border E-Commerce [FRD-BNK-2026236]
+Date: Thu, 25 Jun 2026 12:04:00 +0000
+Message-ID: <BNK-2026236-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026236-turn3@banktech-ops.internal>
+References: <BNK-2026236-turn1@banktech-ops.internal> <BNK-2026236-turn2@banktech-ops.internal> <BNK-2026236-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026236
+X-Domain-Category: Risk, Compliance & Fraud
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Mei Ling Zhou,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Priya Nair
+Settlements Analyst
+
+
+On Thu, 25 Jun 2026 03:48:00 +0000, Mei Ling Zhou <mlzhou@finflow-core.internal> wrote:
+> Hi Priya Nair,
+> 
+> Root Cause Analysis and Resolution:
+> Identified that Fraud Rule #914 ('Velocity check on 3DS 2.0 transactions without biometric step-up') was incorrectly activated in production mode instead of shadow test mode. Disabled Rule #914 and executed automated SMS notifications to affected cardholders advising them to re-attempt purchases.
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026236.
+> 
+> Best regards,
+> Mei Ling Zhou
+> Database & Ledger Ops
+> 
+>
+> On Wed, 24 Jun 2026 21:28:00 +0000, Mei Ling Zhou <mlzhou@finflow-core.internal> wrote:
+>> Hi Priya Nair,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026236 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Risk, Compliance & Fraud.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Mei Ling Zhou
+>> Database & Ledger Ops
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Wed, 24 Jun 2026 17:50:00 +0000, Priya Nair <priya.nair@citadelsecurities-ops.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Sudden surge in card transaction declines (Decline Code 59: Suspected Fraud) affecting over 1,800 retail cardholders purchasing on European travel portals.
+>>> 
+>>> Secondary Question / Request:
+>>> Customer service phone IVR queues are overwhelmed with wait times exceeding 45 minutes.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Priya Nair
+>>> Settlements Analyst
+>>> Direct: +1 (212) 555-1236
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

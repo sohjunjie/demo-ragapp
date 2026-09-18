@@ -1,0 +1,77 @@
+From: "Priya Nair" <priya.nair@citadelsecurities-ops.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [P1 - UNRESOLVED ESCALATION] EOD General Ledger Batch Abort & Cross-Currency Sweep Failure [BAT-BNK-2026036]
+Date: Thu, 05 Feb 2026 09:00:00 +0000
+Message-ID: <BNK-2026036-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026036-turn3@banktech-ops.internal>
+References: <BNK-2026036-turn1@banktech-ops.internal> <BNK-2026036-turn2@banktech-ops.internal> <BNK-2026036-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026036
+X-Domain-Category: Core Banking & Account Servicing
+X-Thread-Resolution-Status: UNRESOLVED
+
+Hi Nils Lindqvist,
+
+Understood, but please be aware that the delay is placing us in breach of regulatory settlement thresholds. The head of operations has been notified. 
+
+We will join the emergency bridge call immediately.
+
+Regards,
+Priya Nair
+Settlements Analyst
+
+
+On Thu, 05 Feb 2026 00:43:00 +0000, Nils Lindqvist <nlindqvist@coreplatform.internal> wrote:
+> Hi Priya Nair,
+> 
+> Current Status Update:
+> The EOD job fails repeatedly even after killing table locks. Database team suspects underlying tablespace corruption on filesystem mount /u02/oradata/ledger01.dbf. Core banking system remains offline.
+> 
+> Given the severity and lack of an immediate workaround, this issue is flagged as a blocker. We are scheduling an emergency cross-functional incident bridge with external vendors and tier-3 architects.
+> 
+> We will provide hourly updates on the conference bridge.
+> 
+> Best regards,
+> Nils Lindqvist
+> Payments Infrastructure Lead
+> 
+>
+> On Wed, 04 Feb 2026 20:07:00 +0000, Nils Lindqvist <nlindqvist@coreplatform.internal> wrote:
+>> Hi Priya Nair,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026036 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Core Banking & Account Servicing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Nils Lindqvist
+>> Payments Infrastructure Lead
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Wed, 04 Feb 2026 17:30:00 +0000, Priya Nair <priya.nair@citadelsecurities-ops.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> The End-of-Day (EOD) financial close batch failed at Step 48 (Multi-Currency Account Sweep). Database returned ORA-00054: resource busy and acquire with NOWAIT specified.
+>>> 
+>>> Secondary Question / Request:
+>>> Also, five corporate multi-currency checking accounts have negative unapproved balances that bypassed the automated hard-stop stop-payment rule.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Priya Nair
+>>> Settlements Analyst
+>>> Direct: +1 (212) 555-1036
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

@@ -1,0 +1,77 @@
+From: "Priya Nair" <priya.nair@citadelsecurities-ops.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: URGENT: SEPA Instant Payment Settlement Failures on BIC UBSWCHZH [REF-BNK-2026286]
+Date: Thu, 30 Jul 2026 13:09:00 +0000
+Message-ID: <BNK-2026286-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026286-turn3@banktech-ops.internal>
+References: <BNK-2026286-turn1@banktech-ops.internal> <BNK-2026286-turn2@banktech-ops.internal> <BNK-2026286-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026286
+X-Domain-Category: Payments, Wire & Clearing
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Kavita Patel,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Priya Nair
+Settlements Analyst
+
+
+On Thu, 30 Jul 2026 05:44:00 +0000, Kavita Patel <kpatel@banking-solutions.internal> wrote:
+> Hi Priya Nair,
+> 
+> Root Cause Analysis and Resolution:
+> Identified that the TIPS liquidity reserve pool mirror synchronizer thread deadlocked following database migration. Restarted the liquidity daemon with thread pool size increased from 16 to 64. CHAPS webhook daemon had stale certificate; replaced cert and replayed missed events.
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026286.
+> 
+> Best regards,
+> Kavita Patel
+> Trade Engine Escalations
+> 
+>
+> On Wed, 29 Jul 2026 23:07:00 +0000, Kavita Patel <kpatel@banking-solutions.internal> wrote:
+>> Hi Priya Nair,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026286 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Payments, Wire & Clearing.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Kavita Patel
+>> Trade Engine Escalations
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Wed, 29 Jul 2026 19:40:00 +0000, Priya Nair <priya.nair@citadelsecurities-ops.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> pacs.008 messages for instant credit transfers rejected with error code 'AM04' (Insufficient Funds in clearing account), despite TARGET2 memo balance showing €45M surplus.
+>>> 
+>>> Secondary Question / Request:
+>>> Also, our automated clearing cut-off notifications for CHAPS failed to trigger at 16:00 BST.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Priya Nair
+>>> Settlements Analyst
+>>> Direct: +1 (212) 555-1286
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

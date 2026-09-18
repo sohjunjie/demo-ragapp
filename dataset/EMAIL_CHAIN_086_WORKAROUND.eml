@@ -1,0 +1,77 @@
+From: "Priya Nair" <priya.nair@citadelsecurities-ops.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [WORKAROUND ACTIVE] Card Fraud Rule False Positive Spike on Cross-Border E-Commerce [FRD-BNK-2026086]
+Date: Thu, 12 Mar 2026 05:40:00 +0000
+Message-ID: <BNK-2026086-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026086-turn3@banktech-ops.internal>
+References: <BNK-2026086-turn1@banktech-ops.internal> <BNK-2026086-turn2@banktech-ops.internal> <BNK-2026086-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026086
+X-Domain-Category: Risk, Compliance & Fraud
+X-Thread-Resolution-Status: WORKAROUND
+
+Hi Gregory Bell,
+
+Acknowledged. We have applied the workaround instructions, and today's urgent settlements have processed successfully. 
+
+Please keep us updated once the permanent patch CR-8086 is successfully deployed to production this weekend.
+
+Regards,
+Priya Nair
+Settlements Analyst
+
+
+On Thu, 12 Mar 2026 02:33:00 +0000, Gregory Bell <gbell@fintechops-tier3.com> wrote:
+> Hi Priya Nair,
+> 
+> Our engineering team has identified the failure mechanism, but a permanent core patch will require scheduled weekend downtime. 
+> 
+> In the interim, we have implemented the following operational WORKAROUND:
+> Temporarily raised the risk score threshold from 65 to 85 for 3D-Secure authenticated transactions originating from verified merchant categories (MCC 4511, 4722).
+> 
+> Please execute your critical transactions using this intermediate path. We have linked this to Change Request CR-8086 for permanent deployment during Sunday's maintenance window.
+> 
+> Best regards,
+> Gregory Bell
+> Clearing Support Engineer
+> 
+>
+> On Wed, 11 Mar 2026 20:55:00 +0000, Gregory Bell <gbell@fintechops-tier3.com> wrote:
+>> Hi Priya Nair,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026086 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Risk, Compliance & Fraud.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Gregory Bell
+>> Clearing Support Engineer
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Wed, 11 Mar 2026 19:20:00 +0000, Priya Nair <priya.nair@citadelsecurities-ops.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Sudden surge in card transaction declines (Decline Code 59: Suspected Fraud) affecting over 1,800 retail cardholders purchasing on European travel portals.
+>>> 
+>>> Secondary Question / Request:
+>>> Customer service phone IVR queues are overwhelmed with wait times exceeding 45 minutes.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Priya Nair
+>>> Settlements Analyst
+>>> Direct: +1 (212) 555-1086
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

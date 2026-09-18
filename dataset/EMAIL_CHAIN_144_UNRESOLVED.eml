@@ -1,0 +1,77 @@
+From: "Carlos Mendoza" <cmendoza@iberia-banco.es>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [P1 - UNRESOLVED ESCALATION] Syndicated Loan Facility Drawdown Rejection & LIBOR-SOFR Credit Spread Adjustment [LOAN-BNK-2026144]
+Date: Tue, 21 Apr 2026 12:20:00 +0000
+Message-ID: <BNK-2026144-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026144-turn3@banktech-ops.internal>
+References: <BNK-2026144-turn1@banktech-ops.internal> <BNK-2026144-turn2@banktech-ops.internal> <BNK-2026144-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026144
+X-Domain-Category: Corporate Lending & Trade Finance
+X-Thread-Resolution-Status: UNRESOLVED
+
+Hi Tara Deshmukh,
+
+Understood, but please be aware that the delay is placing us in breach of regulatory settlement thresholds. The head of operations has been notified. 
+
+We will join the emergency bridge call immediately.
+
+Regards,
+Carlos Mendoza
+Payment Switch Ops
+
+
+On Tue, 21 Apr 2026 09:06:00 +0000, Tara Deshmukh <tdeshmukh@finserv-systems.internal> wrote:
+> Hi Carlos Mendoza,
+> 
+> Current Status Update:
+> Discrepancy in loan syndication participation percentages across the 6 participant lenders cannot be reconciled due to asynchronous trades on the secondary loan market. Loan agent system blocked until all participations balance to exactly 100.0000000%.
+> 
+> Given the severity and lack of an immediate workaround, this issue is flagged as a blocker. We are scheduling an emergency cross-functional incident bridge with external vendors and tier-3 architects.
+> 
+> We will provide hourly updates on the conference bridge.
+> 
+> Best regards,
+> Tara Deshmukh
+> L3 Tier Support Tech Lead
+> 
+>
+> On Tue, 21 Apr 2026 06:36:00 +0000, Tara Deshmukh <tdeshmukh@finserv-systems.internal> wrote:
+>> Hi Carlos Mendoza,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026144 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Corporate Lending & Trade Finance.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Tara Deshmukh
+>> L3 Tier Support Tech Lead
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Tue, 21 Apr 2026 04:30:00 +0000, Carlos Mendoza <cmendoza@iberia-banco.es> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Agent bank unable to book a $120,000,000 revolving credit facility drawdown for borrower consortium. Loan engine throws 'FLOOR_SPREAD_CALC_EXCEPTION'.
+>>> 
+>>> Secondary Question / Request:
+>>> Borrower also requested an extension on the delivery deadline for their Q2 audited covenant compliance certificate.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Carlos Mendoza
+>>> Payment Switch Ops
+>>> Direct: +1 (212) 555-1144
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

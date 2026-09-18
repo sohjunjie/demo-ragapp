@@ -1,0 +1,77 @@
+From: "Ahmed Al-Mansoor" <a.mansoor@gulfcredit.ae>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: Open Banking PSD2 API Gateway 504 Gateway Timeout on AISP Endpoints [API-BNK-2026087]
+Date: Fri, 13 Mar 2026 04:25:00 +0000
+Message-ID: <BNK-2026087-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026087-turn3@banktech-ops.internal>
+References: <BNK-2026087-turn1@banktech-ops.internal> <BNK-2026087-turn2@banktech-ops.internal> <BNK-2026087-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026087
+X-Domain-Category: Digital Banking & Open API
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Samuel Becker,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Ahmed Al-Mansoor
+Cash Management Director
+
+
+On Thu, 12 Mar 2026 20:59:00 +0000, Samuel Becker <sbecker@cloudfin-systems.com> wrote:
+> Hi Ahmed Al-Mansoor,
+> 
+> Root Cause Analysis and Resolution:
+> Discovered that the database connection pool on the OAuth2 consent verification microservice was exhausted due to missing keep-alive timeouts on idle connections. Implemented connection reaping after 15s and increased ingress proxy timeout from 30s to 60s. Refreshed sandbox key store certificates.
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026087.
+> 
+> Best regards,
+> Samuel Becker
+> API & Gateway Architect
+> 
+>
+> On Thu, 12 Mar 2026 15:34:00 +0000, Samuel Becker <sbecker@cloudfin-systems.com> wrote:
+>> Hi Ahmed Al-Mansoor,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026087 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Digital Banking & Open API.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Samuel Becker
+>> API & Gateway Architect
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Thu, 12 Mar 2026 13:15:00 +0000, Ahmed Al-Mansoor <a.mansoor@gulfcredit.ae> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Third-Party Providers (TPPs) reporting elevated error rates (504 Gateway Timeout) on `/open-banking/v3.1/aisp/accounts` endpoint during morning peak hours.
+>>> 
+>>> Secondary Question / Request:
+>>> Several fintech developers also reporting invalid token responses on the sandbox authorization portal.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Ahmed Al-Mansoor
+>>> Cash Management Director
+>>> Direct: +1 (212) 555-1087
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

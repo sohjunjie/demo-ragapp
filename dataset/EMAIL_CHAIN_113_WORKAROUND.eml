@@ -1,0 +1,77 @@
+From: "Chloe Bennett" <cbennett@pacifichedge.sg>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [WORKAROUND ACTIVE] Letter of Credit (LC) MT700 Amendment Discrepancy & Bill of Lading Validation [LC-BNK-2026113]
+Date: Tue, 31 Mar 2026 00:03:00 +0000
+Message-ID: <BNK-2026113-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026113-turn3@banktech-ops.internal>
+References: <BNK-2026113-turn1@banktech-ops.internal> <BNK-2026113-turn2@banktech-ops.internal> <BNK-2026113-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026113
+X-Domain-Category: Corporate Lending & Trade Finance
+X-Thread-Resolution-Status: WORKAROUND
+
+Hi Nils Lindqvist,
+
+Acknowledged. We have applied the workaround instructions, and today's urgent settlements have processed successfully. 
+
+Please keep us updated once the permanent patch CR-8113 is successfully deployed to production this weekend.
+
+Regards,
+Chloe Bennett
+Risk & Liquidity Controller
+
+
+On Mon, 30 Mar 2026 20:56:00 +0000, Nils Lindqvist <nlindqvist@coreplatform.internal> wrote:
+> Hi Chloe Bennett,
+> 
+> Our engineering team has identified the failure mechanism, but a permanent core patch will require scheduled weekend downtime. 
+> 
+> In the interim, we have implemented the following operational WORKAROUND:
+> Document examination specialist manually stamped the documents as compliant in the Trade Innovation system and notified the beneficiary bank via MT799 message.
+> 
+> Please execute your critical transactions using this intermediate path. We have linked this to Change Request CR-8113 for permanent deployment during Sunday's maintenance window.
+> 
+> Best regards,
+> Nils Lindqvist
+> Payments Infrastructure Lead
+> 
+>
+> On Mon, 30 Mar 2026 14:30:00 +0000, Nils Lindqvist <nlindqvist@coreplatform.internal> wrote:
+>> Hi Chloe Bennett,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026113 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Corporate Lending & Trade Finance.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Nils Lindqvist
+>> Payments Infrastructure Lead
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Mon, 30 Mar 2026 12:05:00 +0000, Chloe Bennett <cbennett@pacifichedge.sg> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> Irrevocable Commercial Letter of Credit #ILC-2026-8819 for $6,300,000 showing status 'DOCUMENTS_REJECTED' due to an apparent discrepancy between the electronic bill of lading transport date and LC expiry date.
+>>> 
+>>> Secondary Question / Request:
+>>> Corporate client also wants confirmation on whether the issuance fee was debited from their EUR or USD sub-account.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Chloe Bennett
+>>> Risk & Liquidity Controller
+>>> Direct: +1 (212) 555-1113
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

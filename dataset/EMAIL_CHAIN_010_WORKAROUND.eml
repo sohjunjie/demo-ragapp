@@ -1,0 +1,77 @@
+From: "Marcus Vance" <marcus.vance@apexwealth.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: [WORKAROUND ACTIVE] AML Transaction Monitoring Batch Queue Latency & STR Alert Backlog [AML-BNK-2026010]
+Date: Sun, 18 Jan 2026 00:02:00 +0000
+Message-ID: <BNK-2026010-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026010-turn3@banktech-ops.internal>
+References: <BNK-2026010-turn1@banktech-ops.internal> <BNK-2026010-turn2@banktech-ops.internal> <BNK-2026010-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026010
+X-Domain-Category: Risk, Compliance & Fraud
+X-Thread-Resolution-Status: WORKAROUND
+
+Hi Samuel Becker,
+
+Acknowledged. We have applied the workaround instructions, and today's urgent settlements have processed successfully. 
+
+Please keep us updated once the permanent patch CR-8010 is successfully deployed to production this weekend.
+
+Regards,
+Marcus Vance
+Operations Lead
+
+
+On Sat, 17 Jan 2026 19:40:00 +0000, Samuel Becker <sbecker@cloudfin-systems.com> wrote:
+> Hi Marcus Vance,
+> 
+> Our engineering team has identified the failure mechanism, but a permanent core patch will require scheduled weekend downtime. 
+> 
+> In the interim, we have implemented the following operational WORKAROUND:
+> Activated high-threshold filtering heuristic to temporarily prioritize only transactions > $250,000 for real-time human review while batch processing catch-up runs in background.
+> 
+> Please execute your critical transactions using this intermediate path. We have linked this to Change Request CR-8010 for permanent deployment during Sunday's maintenance window.
+> 
+> Best regards,
+> Samuel Becker
+> API & Gateway Architect
+> 
+>
+> On Sat, 17 Jan 2026 13:24:00 +0000, Samuel Becker <sbecker@cloudfin-systems.com> wrote:
+>> Hi Marcus Vance,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026010 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Risk, Compliance & Fraud.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Samuel Becker
+>> API & Gateway Architect
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Sat, 17 Jan 2026 10:40:00 +0000, Marcus Vance <marcus.vance@apexwealth.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> The Actimize AML transaction monitoring system is experiencing an 8-hour processing backlog on wire transaction alerts. High-risk transactions are clearing prior to mandatory compliance pre-settlement checks.
+>>> 
+>>> Secondary Question / Request:
+>>> Also, the automated nightly export to FinCEN for SAR/STR e-filing failed with an HTTP 403 Forbidden.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Marcus Vance
+>>> Operations Lead
+>>> Direct: +1 (212) 555-1010
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

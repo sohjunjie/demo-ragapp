@@ -1,0 +1,152 @@
+{
+  "pom.xml": {
+    "mtime": 1789715799.1476383,
+    "seen": 1789721239.3825068,
+    "ast_hash": "e05358de9f7223e7b019c04e3e71dc87",
+    "semantic_hash": ""
+  },
+  "src/main/java/org/example/DemoApplication.java": {
+    "mtime": 1786819523.65,
+    "seen": 1789721239.3825068,
+    "ast_hash": "65760049c22d6cbb14965fb872d45e0a",
+    "semantic_hash": "65760049c22d6cbb14965fb872d45e0a"
+  },
+  "src/main/java/org/example/controller/ApiController.java": {
+    "mtime": 1789716574.9483154,
+    "seen": 1789721239.3825068,
+    "ast_hash": "766bc43a33ec1d42bcb988258b689b90",
+    "semantic_hash": ""
+  },
+  "src/main/java/org/example/model/EmailMessage.java": {
+    "mtime": 1789567760.2788136,
+    "seen": 1789721239.3825068,
+    "ast_hash": "8f7cc59104a404d500fe012f42eca78a",
+    "semantic_hash": "8f7cc59104a404d500fe012f42eca78a"
+  },
+  "src/main/java/org/example/model/EmailTurn.java": {
+    "mtime": 1789567757.5495307,
+    "seen": 1789721239.3825068,
+    "ast_hash": "5f628a376dbf0917de3d90782e1fb8f6",
+    "semantic_hash": "5f628a376dbf0917de3d90782e1fb8f6"
+  },
+  "src/main/java/org/example/model/IngestionReq.java": {
+    "mtime": 1789566995.593678,
+    "seen": 1789721239.3825068,
+    "ast_hash": "c406df2ef2807c507824a49185605fec",
+    "semantic_hash": "c406df2ef2807c507824a49185605fec"
+  },
+  "src/main/java/org/example/service/DocumentQueryService.java": {
+    "mtime": 1786821004.326,
+    "seen": 1789721239.3825068,
+    "ast_hash": "39a91ad0ffae8f01e9238816d86ef326",
+    "semantic_hash": "39a91ad0ffae8f01e9238816d86ef326"
+  },
+  "src/main/java/org/example/service/EmailParser.java": {
+    "mtime": 1789567765.1573524,
+    "seen": 1789721239.3825068,
+    "ast_hash": "c7ac12527f00005cb19777dcb157bc68",
+    "semantic_hash": "c7ac12527f00005cb19777dcb157bc68"
+  },
+  "src/main/java/org/example/service/IngestionService.java": {
+    "mtime": 1786820097.901,
+    "seen": 1789721239.3825068,
+    "ast_hash": "3d2f97f1576d74f98301ec70c8a349d6",
+    "semantic_hash": "3d2f97f1576d74f98301ec70c8a349d6"
+  },
+  "src/test/java/org/example/DemoApplicationTests.java": {
+    "mtime": 1786821723.826,
+    "seen": 1789721239.3825068,
+    "ast_hash": "a22e963820beeae1c861bfc47a968edd",
+    "semantic_hash": "a22e963820beeae1c861bfc47a968edd"
+  },
+  "src/test/java/org/example/service/EmailParserTest.java": {
+    "mtime": 1789568603.9747548,
+    "seen": 1789721239.3825068,
+    "ast_hash": "e686d4a157f31f4cb6f582c7750318ce",
+    "semantic_hash": "e686d4a157f31f4cb6f582c7750318ce"
+  },
+  "src/main/resources/application.yml": {
+    "mtime": 1789716679.67,
+    "seen": 1789721239.3835142,
+    "ast_hash": "d5640f4e7e8a5a4e17dd9cf8d487b0c2",
+    "semantic_hash": ""
+  },
+  "src/test/resources/application.yml": {
+    "mtime": 1789715949.0474303,
+    "seen": 1789721239.3835142,
+    "ast_hash": "d0c9e815d15b3b822153dd1c1f8aa356",
+    "semantic_hash": ""
+  },
+  "src/main/java/org/example/model/EvaluationRequest.java": {
+    "mtime": 1789715840.555073,
+    "seen": 1789721239.3825068,
+    "ast_hash": "8d63f15c43a4e46f27f0249a412356ce",
+    "semantic_hash": ""
+  },
+  "src/main/java/org/example/model/JudgeOptions.java": {
+    "mtime": 1789715837.281481,
+    "seen": 1789721239.3825068,
+    "ast_hash": "d9f070ea973e1b7a76e32f849d4540f0",
+    "semantic_hash": ""
+  },
+  "src/main/java/org/example/service/ChatModelResolver.java": {
+    "mtime": 1789715847.263605,
+    "seen": 1789721239.3825068,
+    "ast_hash": "94f0a087cf79497a2b216307c5ea780c",
+    "semantic_hash": ""
+  },
+  "src/main/java/org/example/service/DefaultChatModelResolver.java": {
+    "mtime": 1789715854.8427014,
+    "seen": 1789721239.3825068,
+    "ast_hash": "d4522c02dc9993bbd7bd5e0e74abdb76",
+    "semantic_hash": ""
+  },
+  "src/main/java/org/example/service/EmailResolutionJudgeService.java": {
+    "mtime": 1789721169.0995097,
+    "seen": 1789721239.3825068,
+    "ast_hash": "3e86d9eff4b132d8fe550d814fda090b",
+    "semantic_hash": ""
+  },
+  "src/main/java/org/example/service/EmailResolutionJudgeServiceImpl.java": {
+    "mtime": 1789721177.8456793,
+    "seen": 1789721239.3825068,
+    "ast_hash": "a5457c6dd60beb5aed544ef821ff8f1d",
+    "semantic_hash": ""
+  },
+  "src/test/java/org/example/service/DefaultChatModelResolverTest.java": {
+    "mtime": 1789715886.0155041,
+    "seen": 1789721239.3825068,
+    "ast_hash": "36b689f7144803a2051e341780cb485a",
+    "semantic_hash": ""
+  },
+  "src/test/java/org/example/service/EmailResolutionJudgeServiceImplTest.java": {
+    "mtime": 1789721195.875524,
+    "seen": 1789721239.3825068,
+    "ast_hash": "8424a0d1ab3613f7ce5e69a2570cb59a",
+    "semantic_hash": ""
+  },
+  "src/main/java/org/example/controller/JudgeApiController.java": {
+    "mtime": 1789721182.975989,
+    "seen": 1789721239.3825068,
+    "ast_hash": "7a38216fdc182ae22a97f7ff71b49d74",
+    "semantic_hash": ""
+  },
+  "src/test/java/org/example/controller/JudgeApiControllerTest.java": {
+    "mtime": 1789721205.3686156,
+    "seen": 1789721239.3825068,
+    "ast_hash": "260e21e43b57f0dd30541c29ced5799c",
+    "semantic_hash": ""
+  },
+  "src/main/java/org/example/model/EmailLlmAnalysis.java": {
+    "mtime": 1789720985.722,
+    "seen": 1789721239.3825068,
+    "ast_hash": "e85f842d8871e0826998bf183e9f9b88",
+    "semantic_hash": ""
+  },
+  "src/main/java/org/example/model/EmailLlmAnalysisIssue.java": {
+    "mtime": 1789721073.737,
+    "seen": 1789721239.3825068,
+    "ast_hash": "2eeca28f3753fbde80f9dbf8e7d90610",
+    "semantic_hash": ""
+  }
+}

@@ -1,0 +1,77 @@
+From: "Marcus Vance" <marcus.vance@apexwealth.com>
+To: "Enterprise Financial Support" <support@finbank-ops.internal>
+Subject: Re: AML Transaction Monitoring Batch Queue Latency & STR Alert Backlog [AML-BNK-2026205]
+Date: Wed, 03 Jun 2026 17:38:00 +0000
+Message-ID: <BNK-2026205-turn4@banktech-ops.internal>
+In-Reply-To: <BNK-2026205-turn3@banktech-ops.internal>
+References: <BNK-2026205-turn1@banktech-ops.internal> <BNK-2026205-turn2@banktech-ops.internal> <BNK-2026205-turn3@banktech-ops.internal>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Incident-Reference: BNK-2026205
+X-Domain-Category: Risk, Compliance & Fraud
+X-Thread-Resolution-Status: RESOLVED
+
+Hi Gregory Bell,
+
+Confirming from the desk that the transactions have posted correctly and all balance sheets reconcile. The secondary issue is also verified.
+
+Thank you for the quick turnaround! You may proceed with closing the ticket.
+
+Best,
+Marcus Vance
+Operations Lead
+
+
+On Wed, 03 Jun 2026 09:09:00 +0000, Gregory Bell <gbell@fintechops-tier3.com> wrote:
+> Hi Marcus Vance,
+> 
+> Root Cause Analysis and Resolution:
+> Root cause was an unindexed join on the customer historical transaction table containing 450M rows. Created a composite partition index on (cust_id, tx_timestamp) and scaled worker nodes from 4 to 12. FinCEN export failed due to expired PKI client certificate; uploaded renewed cert and retransmitted SAR batch.
+> 
+> Both your primary operational inquiry and the secondary item have been addressed and verified in our production monitoring dashboards. All transaction queues have returned to normal baseline latency.
+> 
+> Please confirm if everything is functioning as expected on your end so we can close out ticket BNK-2026205.
+> 
+> Best regards,
+> Gregory Bell
+> Clearing Support Engineer
+> 
+>
+> On Wed, 03 Jun 2026 04:40:00 +0000, Gregory Bell <gbell@fintechops-tier3.com> wrote:
+>> Hi Marcus Vance,
+>> 
+>> Thank you for raising this. Incident ticket BNK-2026205 has been registered with Priority P1-High.
+>> 
+>> I am analyzing the transaction telemetry, gateway event journals, and microservice logs for Risk, Compliance & Fraud.
+>> Initial check:
+>> - Validated telemetry across incoming message brokers.
+>> - Investigating database locks and upstream clearing network status.
+>> 
+>> I will update you as soon as the diagnostics complete.
+>> 
+>> Best regards,
+>> Gregory Bell
+>> Clearing Support Engineer
+>> Enterprise Financial Support Group
+>> 
+>>
+>> On Wed, 03 Jun 2026 02:25:00 +0000, Marcus Vance <marcus.vance@apexwealth.com> wrote:
+>>> Hello IT Systems Support,
+>>> 
+>>> We are experiencing a critical production operational issue affecting our desk this morning.
+>>> 
+>>> Primary Issue:
+>>> The Actimize AML transaction monitoring system is experiencing an 8-hour processing backlog on wire transaction alerts. High-risk transactions are clearing prior to mandatory compliance pre-settlement checks.
+>>> 
+>>> Secondary Question / Request:
+>>> Also, the automated nightly export to FinCEN for SAR/STR e-filing failed with an HTTP 403 Forbidden.
+>>> 
+>>> Could someone from the engineering escalation team look into this urgently? This is directly impacting client SLA and intraday liquidity cut-offs.
+>>> 
+>>> Kind regards,
+>>> Marcus Vance
+>>> Operations Lead
+>>> Direct: +1 (212) 555-1205
+>>> Confidentiality Notice: This email and any attachments are proprietary to the financial institution and intended solely for the recipient.
+>>> 

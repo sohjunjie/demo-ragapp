@@ -142,8 +142,8 @@ spring:
         table-name: vector_store
   datasource:
     url: jdbc:postgresql://localhost:5432/ragdb
-    username: postgres
-    password: postgres
+    username: ${VECTOR_DB_USR:}
+    password: ${VECTOR_DB_PWD:}
 ```
 
 ### 3. Build & Run the Application

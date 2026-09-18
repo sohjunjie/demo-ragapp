@@ -3,7 +3,6 @@ package org.example.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.example.model.EmailLlmAnalysis;
 import org.example.model.EmailMessage;
-import org.example.model.EvaluationRequest;
 import org.example.model.JudgeOptions;
 import org.example.service.EmailParser;
 import org.example.service.EmailResolutionJudgeService;
@@ -30,11 +29,6 @@ public class JudgeApiController {
         this.emailResolutionJudgeService = emailResolutionJudgeService;
         this.emailParser = emailParser;
 
-    }
-
-    @PostMapping("/evaluate")
-    public EmailLlmAnalysis evaluate(@RequestBody EvaluationRequest request) {
-        return emailResolutionJudgeService.evaluate(request.email(), request.options());
     }
 
     @PostMapping(value = "/evaluate-file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)

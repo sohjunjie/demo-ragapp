@@ -1,96 +1,79 @@
-# Demo RAG & LLM-as-a-Judge Email Resolution Engine
+# Demo RAG & LLM-as-a-Judge Application (`demo-ragapp`)
 
-[![Java](https://img.shields.io/badge/Java-26-orange.svg)](https://openjdk.org/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.0-brightgreen.svg)](https://spring.io/projects/spring-boot)
-[![Spring AI](https://img.shields.io/badge/Spring%20AI-2.0.0-blue.svg)](https://spring.io/projects/spring-ai)
-[![Vector Store](https://img.shields.io/badge/Vector%20Store-PGVector%20%2F%20HNSW-purple.svg)](https://github.com/pgvector/pgvector)
-[![Embeddings](https://img.shields.io/badge/Embeddings-Local%20ONNX%20Transformers-blueviolet.svg)](https://onnxruntime.ai/)
-[![OpenAPI](https://img.shields.io/badge/OpenAPI-Swagger%20UI-green.svg)](https://swagger.io/)
-
-A modern, production-grade Java service combining **Retrieval-Augmented Generation (RAG)** and an **LLM-as-a-Judge Evaluation Engine** to interpret, classify, and index complex multi-turn IT support and customer service email chains.
+A modern, enterprise-grade Spring Boot and Spring AI application demonstrating **Retrieval-Augmented Generation (RAG)**, **Multi-Turn Email Parsing**, **Local ONNX Vector Embeddings**, and **LLM-as-a-Judge Semantic Evaluation**.
 
 ---
 
-## 📌 Problem & Overview
+## 🌟 Overview
 
-Operations and support organizations process thousands of multi-turn email threads. Auditing whether customer issues are truly resolved, bypassed with temporary workarounds, or abandoned due to unresponsive participants is slow, error-prone, and unscalable when done manually.
+`demo-ragapp` bridges multi-turn IT operations/customer support threads and AI-powered intelligence. The application ingests complex email chains, parses chronological conversation turns, runs deep semantic evaluations via an LLM judge to classify issue resolution statuses and customer sentiment, and indexes structured insights into **PGVector** using local transformer embedding models.
 
-This repository provides an automated, model-agnostic solution:
-1. **LLM-as-a-Judge Resolution Engine**: Performs turn-by-turn chronological transcript analysis, decomposes threads into granular customer issues, and outputs strongly typed verdicts (`RESOLVED`, `WORKAROUND`, `UNRESOLVED`, `UNKNOWN`) backed by exact cited evidence and sentiment analysis.
-2. **Semantic RAG Ingestion Pipeline**: Ingests email chains and arbitrary text, splits them into semantic chunks, generates vector embeddings using local ONNX transformer models, and indexes them into **PGVector** (PostgreSQL) with rich evaluation metadata for fast similarity retrieval.
-3. **Pluggable Multi-Model Architecture**: Built on Spring AI 2.0 with dynamic model resolution, allowing seamless switching between cloud LLMs (Google Gemini, OpenAI, Claude) and local inference engines (Ollama).
-
----
-
-## 🏗️ Architecture & Workflow
-
-```mermaid
-flowchart TD
-    subgraph Ingestion["1. Document & Email Ingestion"]
-        EML[".eml Email Threads / Text Payloads"] --> Tika["Apache Tika Reader"]
-        Tika --> Parser["EmailParser\n(Header & Chronological Turn Extraction)"]
-    end
-
-    subgraph LLMJudge["2. LLM-as-a-Judge Service"]
-        Parser --> JudgeService["EmailResolutionJudgeService"]
-        Resolver["ChatModelResolver\n(Dynamic Model & Temperature Override)"] --> JudgeService
-        JudgeService --> LLM["LLM Provider\n(Google Gemini / Local ONNX / Ollama)"]
-        LLM --> Analysis["Structured EmailLlmAnalysis\n- Confidence Score & Rationale\n- Decomposed Issues\n- Status & Cited Evidence"]
-    end
-
-    subgraph Storage["3. Vector Ingestion & RAG"]
-        Analysis --> IngestService["EmailIngestionService"]
-        IngestService --> Embeddings["ONNX Local Embeddings\n(384 dimensions)"]
-        Embeddings --> PGVector[("PGVector Store\n(PostgreSQL + HNSW Index)")]
-    end
-
-    subgraph Query["4. Search & API Surface"]
-        Client["REST API Consumers / QA Teams"] --> Controller["ApiController / JudgeApiController"]
-        Controller --> DocQuery["DocumentQueryService\n(Cosine Similarity Search)"]
-        DocQuery --> PGVector
-    end
+```
+                  ┌────────────────────────┐
+                  │ Multi-Turn Email File  │ (.eml / raw text)
+                  └───────────┬────────────┘
+                              │
+                              ▼
+                  ┌────────────────────────┐
+                  │   EmailParser & Tika   │ (Header isolation & chronological turns)
+                  └───────────┬────────────┘
+                              │
+               ┌──────────────┴──────────────┐
+               ▼                             ▼
+┌─────────────────────────────┐ ┌─────────────────────────────┐
+│  LLM-as-a-Judge Evaluation  │ │ Local ONNX Embeddings (384) │
+│  (Gemini / Google GenAI)    │ │   (all-MiniLM-L6-v2)        │
+│  - Issue decomposition      │ └──────────────┬──────────────┘
+│  - Status & Root Cause      │                │
+│  - Customer Sentiment       │                ▼
+└──────────────┬──────────────┘ ┌─────────────────────────────┐
+               │                │       PGVector Store        │
+               └───────────────►│  (Issue text + Metadata)    │
+                                └──────────────┬──────────────┘
+                                               │
+                                               ▼
+                                ┌─────────────────────────────┐
+                                │   Semantic Search / Ask     │
+                                └─────────────────────────────┘
 ```
 
 ---
 
 ## ✨ Key Features
 
-- **Granular Issue Decomposition**: Identifies each distinct problem within a single multi-turn email thread rather than treating the entire conversation as a monolithic ticket.
-- **Strict Resolution Taxonomy**:
-  - `RESOLVED`: Root cause diagnosed, permanent fix applied, customer confirmation verified.
-  - `WORKAROUND`: Temporary mitigation, bypass, or rollback applied; underlying defect remains open.
-  - `UNRESOLVED`: Issue failing, blocked on dependencies/permissions, or abandoned.
-  - `UNKNOWN`: Insufficient or ambiguous context to classify.
-- **Evidence & Chain-of-Thought Rationale**: Produces step-by-step reasoning alongside exact quoted sentences from conversation turns for full human auditability.
-- **Local ONNX Embeddings**: Runs 384-dimensional embedding models locally using ONNX runtime without incurring external embedding API costs or latency.
-- **Dynamic Model Resolution**: Runtime override of target LLM model name and temperature via `JudgeOptions` without service restart.
-- **Comprehensive Benchmark Fixtures**: Includes over 300 ground-truth email chain fixtures (`dataset/*.eml`) spanning all resolution categories.
+- **Multi-Turn Email Parsing & Decomposition**:
+  - Automatically isolates email headers (`Subject`, `Date`, `From`, `To`) and reply delimiters (`On ... wrote:`).
+  - Reconstructs chronological conversation turns (Turn 1 to Turn $N$) from raw `.eml` or text files.
+- **LLM-as-a-Judge Semantic Evaluation**:
+  - Uses custom system rubrics and Chain-of-Thought (CoT) reasoning to evaluate email threads.
+  - Decomposes threads into discrete customer issues and classifies their status: `RESOLVED`, `WORKAROUND`, `UNRESOLVED`, or `UNKNOWN`.
+  - Extracts direct quoted evidence, root cause summaries, customer sentiment, and resolution steps.
+  - Features dual-layer JSON parsing with Spring AI `BeanOutputConverter` and fallback regex extraction.
+- **Dynamic Model Resolution**:
+  - Dynamically routes requests to specific LLM models (e.g., Google GenAI / Gemini) and adjusts runtime parameters (temperature, model name) per request.
+- **Local ONNX Embeddings (Zero API Embedding Cost)**:
+  - Powered by `spring-ai-starter-model-transformers` and Microsoft ONNX runtime, generating 384-dimensional embeddings locally in `./onnx-models`.
+- **Vector Storage & Semantic Search**:
+  - Integrates with **PostgreSQL + PGVector** (HNSW index, Cosine distance) for metadata-enriched similarity queries.
+  - Uses H2 in-memory vector store for automated unit/integration testing.
+- **Interactive Documentation**:
+  - Built-in Swagger UI and OpenAPI 3 specifications.
 
 ---
 
-## 📊 Evaluation Output Schema
+## 🛠️ Tech Stack
 
-When an email thread is evaluated, the engine returns a structured `EmailLlmAnalysis`:
-
-```json
-{
-  "confidenceScore": 0.95,
-  "rationale": "Turn 1 reported VPN connection drops. Turn 2 suggested MTU configuration changes. Turn 3 confirmed successful connection with no further drops.",
-  "issues": [
-    {
-      "status": "RESOLVED",
-      "issue": "VPN connection drops after 15 minutes of idle time",
-      "keyEvidence": [
-        "Applying the MTU 1420 fix resolved all connection drops completely.",
-        "Tested for 3 hours with stable connection."
-      ],
-      "rootCauseSummary": "Packet fragmentation due to default MTU size mismatch on gateway",
-      "finalCustomerSentiment": "SATISFIED",
-      "resolutionStepsTaken": "Updated client network adapter MTU setting to 1420."
-    }
-  ]
-}
-```
+| Component | Technology / Library |
+|---|---|
+| **Framework** | Spring Boot 4.1.0 |
+| **Language** | Java 26 |
+| **AI Framework** | Spring AI 2.0.0 |
+| **LLM Provider** | Google GenAI (Gemini 3.5 Flash / Gemini 2.5 Flash) |
+| **Embedding Engine** | ONNX Runtime + DJL Tokenizers (`spring-ai-starter-model-transformers`) |
+| **Vector Database** | PostgreSQL with `pgvector` (H2 for test profiles) |
+| **Document Reader** | Apache Tika (`spring-ai-tika-document-reader`) |
+| **API Docs** | SpringDoc OpenAPI 3 (`springdoc-openapi-starter-webmvc-ui` 3.0.3) |
+| **Build Tool** | Apache Maven |
 
 ---
 
@@ -98,29 +81,24 @@ When an email thread is evaluated, the engine returns a structured `EmailLlmAnal
 
 ### Prerequisites
 
-- **Java 26** JDK or newer
+- **Java 26 SDK** (or compatible JDK)
 - **Maven 3.9+**
-- **PostgreSQL** with the [`pgvector`](https://github.com/pgvector/pgvector) extension enabled (for vector store persistence)
-- **Google Gemini API Key** (or another configured Spring AI provider)
+- **PostgreSQL 15+** with the [`pgvector`](https://github.com/pgvector/pgvector) extension enabled
 
-### 1. Environment Configuration
+### Configuration & Environment Variables
 
-Set your Gemini API key in your environment:
+Set the following environment variables before starting the application:
 
 ```bash
-# Linux / macOS
+# Google Gemini / GenAI API Key
 export GEMINI_API_KEY="your-gemini-api-key"
 
-# Windows (PowerShell)
-$env:GEMINI_API_KEY="your-gemini-api-key"
-
-# Windows (Command Prompt)
-set GEMINI_API_KEY=your-gemini-api-key
+# PostgreSQL / PGVector Credentials
+export VECTOR_DB_USR="your_postgres_user"
+export VECTOR_DB_PWD="your_postgres_password"
 ```
 
-### 2. Configure Database & Vector Store
-
-Ensure PostgreSQL is running and update `src/main/resources/application.yml` if necessary:
+Application settings can be reviewed and adjusted in [`src/main/resources/application.yml`](src/main/resources/application.yml):
 
 ```yaml
 spring:
@@ -146,139 +124,192 @@ spring:
     password: ${VECTOR_DB_PWD:}
 ```
 
-### 3. Build & Run the Application
+### Build & Run
 
-```bash
-# Compile and package
-mvn clean package
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/demo-ragapp.git
+   cd demo-ragapp
+   ```
 
-# Run the Spring Boot application
-mvn spring-boot:run
-```
+2. **Execute Tests**:
+   ```bash
+   mvn test
+   ```
 
-The application will start on `http://localhost:8080`.
+3. **Start the Application**:
+   ```bash
+   mvn spring-boot:run
+   ```
+
+4. **Access Swagger UI**:
+   Open [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html) in your browser.
 
 ---
 
 ## 📡 REST API Reference
 
-Interactive Swagger documentation is available at `http://localhost:8080/swagger-ui.html` when the application is running.
+### 1. Evaluate Email Thread (`LLM-as-a-Judge`)
 
-### 1. Evaluate Email Chain (LLM-as-a-Judge)
-Evaluates an uploaded `.eml` email chain and returns structured analysis without saving to vector database.
+Evaluates a multi-turn `.eml` or email text file without modifying the vector store.
 
-- **URL:** `POST /api/judge/evaluate-file`
-- **Content-Type:** `multipart/form-data`
-- **Parameters:**
-  - `input` (File, required): The `.eml` email file.
-  - `modelName` (Query param, optional): Specific LLM model identifier to use (e.g. `gemini-3.5-flash`).
-  - `temperature` (Query param, optional): Sampling temperature (e.g. `0.0` for deterministic judge output).
+- **Endpoint**: `POST /api/judge/evaluate-file`
+- **Content-Type**: `multipart/form-data`
+- **Parameters**:
+  - `input` (*required*, file): Email file (.eml, .txt).
+  - `modelName` (*optional*, query string): Override target LLM model.
+  - `temperature` (*optional*, query string): LLM temperature parameter.
 
+**Sample Request (`curl`)**:
 ```bash
-curl -X POST "http://localhost:8080/api/judge/evaluate-file?temperature=0.0" \
-  -F "input=@dataset/EMAIL_CHAIN_001_RESOLVED.eml"
+curl -X POST "http://localhost:8080/api/judge/evaluate-file?temperature=0.2" \
+  -F "input=@dataset/EMAIL_CHAIN_241_RESOLVED.eml"
 ```
 
-### 2. Ingest Email into Vector Database
-Evaluates an email chain and indexes each decomposed issue, root cause, and metadata into PGVector.
-
-- **URL:** `POST /api/ingest-email`
-- **Content-Type:** `multipart/form-data`
-- **Parameters:** `input` (File, required): `.eml` email file.
-
-```bash
-curl -X POST "http://localhost:8080/api/ingest-email" \
-  -F "input=@dataset/EMAIL_CHAIN_001_RESOLVED.eml"
-```
-
-### 3. Ingest Raw Text
-Chunks and embeds arbitrary text documents into the vector store.
-
-- **URL:** `POST /api/ingest-string`
-- **Content-Type:** `application/json`
-- **Body:**
+**Sample Response**:
 ```json
 {
-  "content": "Kubernetes pod evicted due to disk pressure on node worker-04.",
-  "source": "incident-reports",
-  "description": "Node storage alert",
-  "topics": ["infrastructure", "kubernetes", "disk-pressure"]
+  "confidenceScore": 0.95,
+  "rationale": "Chronological trace shows customer reported a database connection timeout in Turn 1. Support provided connection pool tuning parameters in Turn 2. Customer verified in Turn 3 that latency normalized.",
+  "issues": [
+    {
+      "status": "RESOLVED",
+      "issue": "Database connection pool exhaustion under peak load",
+      "keyEvidence": [
+        "All pool connections are exhausted during batch jobs.",
+        "Increasing max-pool-size to 50 resolved the timeout errors completely."
+      ],
+      "rootCauseSummary": "Undersized connection pool configuration for concurrent batch transactions",
+      "finalCustomerSentiment": "SATISFIED",
+      "resolutionStepsTaken": "Updated HikariCP maximumPoolSize configuration and applied rolling restart"
+    }
+  ]
 }
 ```
 
+---
+
+### 2. Ingest Email & Store Embeddings
+
+Parses the email, runs the judge evaluation, decomposes issues, and persists each issue with rich metadata into the PGVector store.
+
+- **Endpoint**: `POST /api/ingest-email`
+- **Content-Type**: `multipart/form-data`
+- **Parameters**:
+  - `input` (*required*, file): The email file to parse and ingest.
+
+**Sample Request (`curl`)**:
 ```bash
-curl -X POST "http://localhost:8080/api/ingest-string" \
-  -H "Content-Type: application/json" \
-  -d '{"content": "Kubernetes pod evicted due to disk pressure...", "source": "ops", "description": "Alert", "topics": ["k8s"]}'
-```
-
-### 4. Semantic Similarity Search (Ask)
-Searches the vector store for documents matching the semantic meaning of the query.
-
-- **URL:** `GET /api/ask?q={queryText}`
-
-```bash
-curl "http://localhost:8080/api/ask?q=VPN+connection+drops"
+curl -X POST "http://localhost:8080/api/ingest-email" \
+  -F "input=@dataset/EMAIL_CHAIN_241_RESOLVED.eml"
 ```
 
 ---
 
-## 🧪 Testing & Verification
+### 3. Ingest Arbitrary Document / Text
 
-Run the test suite using Maven:
+Splits text into chunks via `TokenTextSplitter` and embeds them with metadata.
 
-```bash
-mvn test
+- **Endpoint**: `POST /api/ingest-string`
+- **Content-Type**: `application/json`
+
+**Sample Request**:
+```json
+{
+  "content": "Spring AI provides high-level abstractions for AI models, vector stores, and document readers.",
+  "source": "knowledge-base",
+  "description": "Spring AI overview documentation",
+  "topics": ["spring-boot", "spring-ai", "rag"]
+}
 ```
-
-Unit and slice tests run against an in-memory **H2 database** and mock configurations, ensuring zero external cloud dependencies during CI/CD test runs.
 
 ---
 
-## 📁 Repository Structure
+### 4. Semantic Similarity Search (`RAG Query`)
+
+Performs cosine similarity search against the vector database to retrieve relevant documents and metadata.
+
+- **Endpoint**: `GET /api/ask?q={query}`
+
+**Sample Request (`curl`)**:
+```bash
+curl -X GET "http://localhost:8080/api/ask?q=database+connection+pool+exhaustion"
+```
+
+**Sample Response**:
+```json
+[
+  {
+    "text": "Issue: Database connection pool exhaustion under peak load\nRoot Cause: Undersized connection pool configuration",
+    "metadata": {
+      "status": "RESOLVED",
+      "customer_sentiment": "SATISFIED",
+      "resolution_steps": "Updated HikariCP maximumPoolSize configuration",
+      "confidence": 0.95
+    }
+  }
+]
+```
+
+---
+
+## 📂 Project Structure
 
 ```
 demo-ragapp/
-├── dataset/                              # 300+ labeled .eml ground-truth email fixtures
-│   ├── EMAIL_CHAIN_001_RESOLVED.eml
-│   ├── EMAIL_CHAIN_002_WORKAROUND.eml
-│   ├── EMAIL_CHAIN_008_UNRESOLVED.eml
-│   ├── EMAIL_CHAIN_012_ABANDONED.eml
-│   └── vector-database-snapshot.csv      # Ground truth benchmark reference
+├── dataset/                        # Sample multi-turn email conversation datasets (.eml)
+├── onnx-models/                    # Cached ONNX transformer embedding models
 ├── src/
 │   ├── main/
 │   │   ├── java/org/example/
-│   │   │   ├── DemoApplication.java      # Spring Boot application entry point
+│   │   │   ├── DemoApplication.java          # Spring Boot main application entrypoint
 │   │   │   ├── controller/
-│   │   │   │   ├── ApiController.java        # Ingestion & similarity search endpoints
-│   │   │   │   └── JudgeApiController.java   # LLM judge evaluation endpoint
+│   │   │   │   ├── ApiController.java        # Ingestion & Query endpoints
+│   │   │   │   └── JudgeApiController.java   # LLM Judge evaluation endpoints
 │   │   │   ├── ingestion/
-│   │   │   │   ├── EmailIngestionService.java   # Evaluates & indexes email issues
-│   │   │   │   └── StringIngestionService.java  # Splits & indexes text snippets
+│   │   │   │   ├── EmailIngestionService.java   # Decomposes & stores email analysis in vector DB
+│   │   │   │   └── StringIngestionService.java  # Token-splits & embeds text strings
 │   │   │   ├── model/
-│   │   │   │   ├── EmailLlmAnalysis.java        # Evaluation verdict record
+│   │   │   │   ├── EmailLlmAnalysis.java        # Judge response record
 │   │   │   │   ├── EmailLlmAnalysisIssue.java   # Decomposed issue record
-│   │   │   │   ├── EmailMessage.java            # Parsed email message record
-│   │   │   │   ├── EmailTurn.java               # Chronological turn representation
-│   │   │   │   ├── IngestionReq.java            # Text ingestion DTO
-│   │   │   │   └── JudgeOptions.java            # Dynamic model execution options
+│   │   │   │   ├── EmailMessage.java            # Parsed email message model
+│   │   │   │   ├── EmailTurn.java               # Chronological turn model
+│   │   │   │   ├── IngestionReq.java            # Ingestion request DTO
+│   │   │   │   └── JudgeOptions.java            # Dynamic model evaluation options
 │   │   │   └── service/
-│   │   │       ├── ChatModelResolver.java               # Pluggable model resolver interface
-│   │   │       ├── DefaultChatModelResolver.java        # ChatClient & multi-model provider
-│   │   │       ├── DocumentQueryService.java            # Vector store similarity search
-│   │   │       ├── EmailParser.java                     # Email header & turn separator
-│   │   │       ├── EmailResolutionJudgeService.java     # Judge interface
-│   │   │       └── EmailResolutionJudgeServiceImpl.java # Prompt rubric & LLM evaluation
+│   │   │       ├── ChatModelResolver.java           # LLM client resolver contract
+│   │   │       ├── DefaultChatModelResolver.java    # Dynamic ChatClient resolution
+│   │   │       ├── DocumentQueryService.java        # Semantic similarity vector retrieval
+│   │   │       ├── EmailParser.java                 # Regex header & turn extraction
+│   │   │       ├── EmailResolutionJudgeService.java # Evaluation service contract
+│   │   │       └── EmailResolutionJudgeServiceImpl.java # LLM rubric & prompt execution
 │   │   └── resources/
-│   │       └── application.yml           # Database, PGVector, and Spring AI configuration
-│   └── test/                             # Unit and integration test suites
-├── SPEC.md                               # System specification & architectural decisions
-├── pom.xml                               # Maven project dependencies and build plugins
-└── README.md                             # Project overview and documentation
+│   │       └── application.yml               # Application configuration
+│   └── test/
+│       ├── java/org/example/
+│       │   ├── DemoApplicationTests.java
+│       │   ├── controller/JudgeApiControllerTest.java
+│       │   └── service/
+│       │       ├── DefaultChatModelResolverTest.java
+│       │       ├── EmailParserTest.java
+│       │       └── EmailResolutionJudgeServiceImplTest.java
+│       └── resources/
+│           └── application.yml               # H2 test datasource configuration
+└── pom.xml                                   # Maven dependencies & build configuration
+```
+
+---
+
+## 🧪 Testing
+
+The test suite validates email parsing, dynamic LLM client resolution, judge parsing fallbacks, mock controller integrations, and full application context bootstrapping with H2 in-memory vector storage:
+
+```bash
+mvn clean test
 ```
 
 ---
 
 ## 📄 License
 
-This project is licensed under the Apache 2.0 License.
+This project is licensed under the Apache-2.0 License.

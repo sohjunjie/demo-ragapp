@@ -1,0 +1,5 @@
+interface:
+  display_name: "Github Readme"
+  short_description: "Generate a github readme"
+policy:
+  allow_implicit_invocation: false
